@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HTML Complete Foundations | The Digital Hub</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../assets/images/the_digital_hub_unrwa_logo-removebg-preview.png">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+
+<body>
+    <div class="deck" id="deck">
+        <section class="slide active hero" data-title="HTML Foundations">
+            <div class="eyebrow"><span class="dot"></span> THE DIGITAL HUB <span class="muted">/ WEEK 01</span></div>
+            <img alt="The Digital Hub" class="hero-logo" src="../../assets/images/the-digital-hub-full-logo.png" />
+            <div class="hero-content">
+                <div class="kicker">WEB FUNDAMENTALS / PART ONE</div>
+                <h1>Give the web<br /><em>its structure.</em></h1>
+                <p class="lead">Learn to describe content with HTML, connect pages, and build accessible foundations for
+                    real websites.</p>
+                <div class="chips"><span>DOCUMENTS</span><span>ELEMENTS</span><span>ACCESSIBILITY</span></div>
+            </div>
+        </section>
+        <section class="slide" data-title="What HTML Does">
+            <div class="eyebrow">01 / THE WEB'S STRUCTURE</div>
+            <h2>HTML gives content <em>meaning.</em></h2>
+            <p class="sub">HTML (HyperText Markup Language) is the markup that describes what each part of a page is.
+            </p>
+            <div class="cards">
+                <article>
+
+                    <h3>Structure</h3>
+                    <p>Headings, paragraphs, sections, navigation, and page landmarks.</p>
+                </article>
+                <article>
+
+                    <h3>Content</h3>
+                    <p>Text, images, links, lists, tables, forms, and media.</p>
+                </article>
+                <article>
+
+                    <h3>Meaning</h3>
+                    <p>Semantic elements tell browsers and assistive technology how content is organized.</p>
+                </article>
+            </div>
+        </section>
+        <section class="slide" data-title="From Markup to Page">
+            <div class="eyebrow">02 / HOW A PAGE APPEARS</div>
+            <h2>Markup becomes a <em>document.</em></h2>
+            <div class="architecture">
+                <div class="node"><small>01 / AUTHOR</small><strong>HTML</strong><span>Describe the content</span></div>
+                <div class="arrow">→</div>
+                <div class="node"><small>02 / BROWSER</small><strong>Parse</strong><span>Build a document tree</span>
+                </div>
+                <div class="arrow">→</div>
+                <div class="node"><small>03 / VISITOR</small><strong>Page</strong><span>Read and interact</span></div>
+            </div>
+            <div class="note">KEY IDEA <span>HTML describes structure; CSS controls presentation and JavaScript adds
+                    behavior.</span></div>
+        </section>
+        <section class="slide" data-title="Document Boilerplate">
+            <div class="eyebrow">03 / START WITH A VALID DOCUMENT</div>
+            <h2>The page <em>skeleton.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Every document has a frame</h3>
+                    <p>The doctype selects modern HTML. The head stores metadata (information about the webpage); the
+                        body holds visible page content.
+                    </p>
+                    <ul>
+                        <li>Set the language</li>
+                        <li>Declare UTF-8</li>
+                        <li>Set the viewport</li>
+                        <li>Give the page a title</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport"
+			content="width=device-width, initial-scale=1"&gt;
+		&lt;title&gt;My page&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;h1&gt;Hello, web&lt;/h1&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Headings and Text">
+            <div class="eyebrow">04 / TEXT ELEMENTS</div>
+            <h2>Build a clear <em>reading order.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Use headings by hierarchy</h3>
+                    <p>A page normally has one main heading, followed by nested section headings. Pick a heading for
+                        meaning, not its visual size.</p>
+                    <ul>
+                        <li><code>&lt;p&gt;</code> for a paragraph</li>
+                        <li><code>&lt;strong&gt;</code> for importance</li>
+
+                    </ul>
+                </div>
+                <pre><code>&lt;h1&gt;Student profile&lt;/h1&gt;
+&lt;p&gt;I build useful web experiences.&lt;/p&gt;
+
+&lt;h2&gt;What I am learning&lt;/h2&gt;
+&lt;p&gt;Currently focused on &lt;strong&gt;HTML and CSS&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2&gt;A note&lt;/h2&gt;
+             </div>
+        </section>
+        <section class="slide" data-title="Links and Navigation">
+            <div class="eyebrow">05 / CONNECT DOCUMENTS</div>
+            <h2>Links connect the <em>web.</em></h2>
+            <div class="cards">
+                <article>
+                    <div class="card-icon">/</div>
+                    <h3>Relative link</h3>
+                    <p><code>&lt;a href="about.html"&gt;About&lt;/a&gt;</code><br />Move to a page in your project.</p>
+                </article>
+                <article>
+                    <div class="card-icon">https</div>
+                    <h3>External link</h3>
+                    <p><code>&lt;a href="https://example.com"&gt;Visit&lt;/a&gt;</code><br />Connect to another website.
+                    </p>
+                </article>
+                <article>
+                    <div class="card-icon">#</div>
+                    <h3>Same-page link</h3>
+                    <p><code>&lt;a href="#contact"&gt;Contact&lt;/a&gt;</code><br />Jump to an element with that ID.</p>
+                </article>
+            </div>
+        </section>
+        <section class="slide" data-title="Images and Figure Captions">
+            <div class="eyebrow">06 / IMAGES THAT INCLUDE EVERYONE</div>
+            <h2>Images need <em>context.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Write useful alternative text</h3>
+                    <p>Describe the information an image contributes. For a decorative image, use an empty alt value.
+                    </p>
+                    <ul>
+                        <li>Use a real project path</li>
+                        <li>Keep alt text concise</li>
+                        <li>Caption complex images</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;img src="images/profile.jpg"
+		 alt="Alex smiling at a laptop"
+		 width="320" height="240"&gt;
+
+&lt;figure&gt;
+	&lt;img src="images/chart.png"
+			 alt="Sales rise steadily from May to August"&gt;
+	&lt;figcaption&gt;
+		Monthly sales, May to August
+	&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Lists">
+            <div class="eyebrow">07 / GROUP RELATED ITEMS</div>
+            <h2>Three useful kinds of <em>list.</em></h2>
+            <div class="compare">
+                <div>
+                    <div class="compare-label">UNORDERED</div>
+                    <h3>Items without a sequence</h3>
+                    <pre><code>&lt;ul&gt;
+	&lt;li&gt;HTML&lt;/li&gt;
+	&lt;li&gt;CSS&lt;/li&gt;
+	&lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                </div>
+                <div>
+                    <div class="compare-label">ORDERED </div>
+                    <h3>Steps </h3>
+                    <pre><code>&lt;ol&gt;
+	&lt;li&gt;Plan the page&lt;/li&gt;
+	&lt;li&gt;Write the markup&lt;/li&gt;
+&lt;/ol&gt;
+ </code></pre>
+                </div>
+            </div>
+        </section>
+        <section class="slide" data-title="Semantic Page Layout">
+            <div class="eyebrow">08 / SEMANTIC HTML</div>
+            <h2>Choose elements by <em>purpose.</em></h2>
+            <p class="sub">Semantic landmarks make the page easier to navigate, maintain, and understand.</p>
+            <div class="architecture">
+                <div class="node"><small>PAGE INTRO</small><strong>&lt;header&gt;</strong><span>Logo and page
+                        heading</span></div>
+                <div class="node"><small>PRIMARY LINKS</small><strong>&lt;nav&gt;</strong><span>Site or section
+                        navigation</span></div>
+                <div class="node"><small>MAIN CONTENT</small><strong>&lt;main&gt;</strong><span>Unique page
+                        content</span></div>
+                <div class="node"><small>RELATED / END</small><strong>&lt;aside&gt;
+                        &lt;footer&gt;</strong><span>Supporting content and ending</span></div>
+            </div>
+            <div class="note">ALSO USE <span><code>&lt;section&gt;</code> for a themed group;
+                    <code>&lt;article&gt;</code> for self-contained content.</span></div>
+        </section>
+        <section class="slide" data-title="A Semantic Page Example">
+            <div class="eyebrow">09 / PUT THE LANDMARKS TOGETHER</div>
+            <h2>A page with <em>meaningful regions.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Prefer purpose over generic wrappers</h3>
+                    <p>Use a <code>&lt;div&gt;</code> when no semantic element fits. Don't choose an element just
+                        because of its default appearance.</p>
+                </div>
+                <pre><code>&lt;header&gt;
+	&lt;a href="/"&gt;My portfolio&lt;/a&gt;
+	&lt;nav aria-label="Main navigation"&gt;
+		&lt;a href="/projects.html"&gt;Projects&lt;/a&gt;
+		&lt;a href="/contact.html"&gt;Contact&lt;/a&gt;
+	&lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+	&lt;article&gt;
+		&lt;h1&gt;About me&lt;/h1&gt;
+		&lt;p&gt;I make things for the web.&lt;/p&gt;
+	&lt;/article&gt;
+&lt;/main&gt;
+&lt;footer&gt;Made with care&lt;/footer&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Attributes">
+            <div class="eyebrow">10 / ELEMENT DETAILS</div>
+            <h2>Attributes add <em>information.</em></h2>
+            <div class="takeaways">
+                <div><b>01</b><span><strong>href:</strong> destination for a link, such as
+                        <code>href="/contact.html"</code>.</span></div>
+                <div><b>02</b><span><strong>src:</strong> file location for an image, video, or script.</span></div>
+                <div><b>03</b><span><strong>alt:</strong> text alternative for an image.</span></div>
+                <div><b>04</b><span><strong>class:</strong> reusable name for styling or scripting.</span></div>
+                <div><b>05</b><span><strong>id:</strong> unique identifier for one element in a document.</span></div>
+            </div>
+        </section>
+        <section class="slide" data-title="Tables">
+            <div class="eyebrow">11 / TABULAR DATA</div>
+            <h2>Use tables for <em>relationships.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Rows and columns have meaning</h3>
+                    <p>Tables are for data that belongs in a grid, not for arranging the whole page.</p>
+                    <ul>
+                        <li><code>&lt;caption&gt;</code> names the table</li>
+                        <li><code>&lt;th&gt;</code> labels a row or column</li>
+                        <li><code>&lt;td&gt;</code> holds a value</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;table&gt;
+	&lt;caption&gt;Workshop schedule&lt;/caption&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th scope="col"&gt;Day&lt;/th&gt;
+			&lt;th scope="col"&gt;Topic&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;th scope="row"&gt;Monday&lt;/th&gt;
+			&lt;td&gt;HTML structure&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+        </section>
+
+
+        <section class="slide" data-title="Accessibility Habits">
+            <div class="eyebrow">16 / ACCESSIBILITY FROM THE START</div>
+            <h2>Make the page work for <em>more people.</em></h2>
+            <div class="takeaways">
+                <div><b>01</b><span>Use semantic landmarks and a logical heading order.</span></div>
+                <div><b>02</b><span>Give informative images useful alt text; use <code>alt=""</code> for
+                        decoration.</span></div>
+                <div><b>03</b><span>Give form controls visible, associated labels.</span></div>
+                <div><b>04</b><span>Use link text that says where the link goes, not just "click here".</span></div>
+                <div><b>05</b><span>Keep keyboard focus visible and provide captions for video.</span></div>
+            </div>
+        </section>
+        <section class="slide" data-title="Common HTML Mistakes">
+            <div class="eyebrow">17 / DEBUG THE MARKUP</div>
+            <h2>Small checks prevent <em>broken pages.</em></h2>
+            <div class="compare">
+                <div>
+                    <div class="compare-label">CHECK THE STRUCTURE</div>
+                    <h3>Common problems</h3>
+                    <ul>
+                        <li>Missing closing tags</li>
+                        <li>Elements nested in invalid places</li>
+                        <li>More than one page-level <code>&lt;h1&gt;</code></li>
+                        <li>Missing alt text or form labels</li>
+                        <li>Reusing the same ID</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="compare-label">CHECK THE RESULT</div>
+                    <h3>Useful habits</h3>
+                    <ul>
+                        <li>Indent nested elements</li>
+                        <li>Use descriptive names</li>
+                        <li>Validate the document</li>
+                        <li>Inspect the page in a browser</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="slide" data-title="Getting Started">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 01</div>
+            <h2>Your first <em>HTML file.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Create index.html in VS Code.</h3>
+                    <ul>
+                        <li>A text editor writes markup</li>
+                        <li>A browser renders the page</li>
+                        <li>Save files with the .html extension</li>
+                    </ul>
+                </div>
+                <pre><code>my-website/
+  index.html
+  images/
+    profile.jpg
+
+1. Open folder in VS Code
+2. Create index.html
+3. Write HTML and save
+4. Open index.html in a browser</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="HTML Element Anatomy">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 02</div>
+            <h2>Understand the <em>tags.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Most elements have opening and closing tags.</h3>
+                    <ul>
+                        <li>Attributes belong in the opening tag</li>
+                        <li>Some elements such as img, br and hr are void elements</li>
+                        <li>Use proper nesting</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;p class="intro"&gt;Hello, students!&lt;/p&gt;
+
+&lt;!-- opening tag: &lt;p class="intro"&gt; --&gt;
+&lt;!-- content: Hello, students! --&gt;
+&lt;!-- closing tag: &lt;/p&gt; --&gt;
+
+&lt;img src="photo.jpg" alt="A student"&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="HTML and Browser">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 03</div>
+            <h2>From file to <em>browser.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>The browser interprets HTML markup.</h3>
+                    <ul>
+                        <li>The head provides document information</li>
+                        <li>The body contains page content</li>
+                        <li>HTML5 uses &lt;!DOCTYPE html&gt;</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;My First Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  Hello World
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Heading Levels">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 04</div>
+            <h2>Six heading <em>levels.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Choose heading levels by structure, not appearance.</h3>
+                    <ul>
+                        <li>h1 is the highest heading level</li>
+                        <li>Avoid skipping levels unnecessarily</li>
+                        <li>Paragraphs use &lt;p&gt;</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;h1&gt;Website title&lt;/h1&gt;
+&lt;h2&gt;About us&lt;/h2&gt;
+&lt;h3&gt;Our team&lt;/h3&gt;
+&lt;h4&gt;Developers&lt;/h4&gt;
+&lt;h5&gt;Frontend&lt;/h5&gt;
+&lt;h6&gt;React&lt;/h6&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Line Breaks and Rules">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 05</div>
+            <h2>Breaks and <em>separators.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Two useful void elements.</h3>
+                    <ul>
+                        <li>&lt;br&gt; makes a line break within content</li>
+                        <li>&lt;hr&gt; marks a thematic break</li>
+                        <li>Do not use repeated br tags for spacing</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;p&gt;Beirut, Lebanon&lt;br&gt;Digital Hub&lt;/p&gt;
+
+&lt;h2&gt;Our services&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;Web development training&lt;/p&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Quotes and Phrases">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 06</div>
+            <h2>Give words <em>meaning.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>HTML has elements for emphasis and quotations.</h3>
+                    <ul>
+                        <li>strong indicates importance; em indicates stress emphasis</li>
+                        <li>blockquote is for longer quotations</li>
+                        <li>Use semantic meaning, not only visual appearance</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;p&gt;&lt;strong&gt;Important:&lt;/strong&gt; Save your work.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Practice&lt;/em&gt; every day.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Bold appearance&lt;/b&gt; and &lt;i&gt;alternate voice&lt;/i&gt;.&lt;/p&gt;
+&lt;blockquote&gt;Learning happens by building.&lt;/blockquote&gt;
+&lt;p&gt;She said &lt;q&gt;Keep trying!&lt;/q&gt;&lt;/p&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Nesting">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 07</div>
+            <h2>Nest elements <em>correctly.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Close inner elements before outer elements.</h3>
+                    <ul>
+                        <li>Indent nested elements for readability</li>
+                        <li>Close tags in reverse opening order</li>
+                        <li>Use a validator to catch mistakes</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;!-- Correct --&gt;
+&lt;p&gt;Learn &lt;strong&gt;HTML&lt;/strong&gt; today.&lt;/p&gt;
+
+&lt;!-- Incorrect --&gt;
+&lt;p&gt;Learn &lt;strong&gt;HTML&lt;/p&gt;&lt;/strong&gt;
+
+&lt;!-- Correct nested list --&gt;
+&lt;ul&gt;
+  &lt;li&gt;Frontend
+    &lt;ul&gt;&lt;li&gt;HTML&lt;/li&gt;&lt;li&gt;CSS&lt;/li&gt;&lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Ordered Lists">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 08</div>
+            <h2>Control list <em>numbering.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Ordered lists are for sequences.</h3>
+                    <ul>
+                        <li>start changes the first number</li>
+                        <li>reversed counts downward</li>
+                        <li>Use ul when order does not matter</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;ol start="3"&gt;
+  &lt;li&gt;Write HTML&lt;/li&gt;
+  &lt;li&gt;Open the browser&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ol reversed&gt;
+  &lt;li&gt;Third place&lt;/li&gt;
+  &lt;li&gt;Second place&lt;/li&gt;
+  &lt;li&gt;First place&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Description Lists">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 09</div>
+            <h2>Terms and <em>definitions.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Pair a term with its explanation.</h3>
+                    <ul>
+                        <li>dl is the list</li>
+                        <li>dt is the term</li>
+                        <li>dd is its description</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;
+  &lt;dd&gt;Defines web page structure.&lt;/dd&gt;
+  &lt;dt&gt;CSS&lt;/dt&gt;
+  &lt;dd&gt;Controls presentation.&lt;/dd&gt;
+  &lt;dt&gt;JavaScript&lt;/dt&gt;
+  &lt;dd&gt;Adds behavior.&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Special Characters">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 10</div>
+            <h2>Display special <em>characters.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Use character references when needed.</h3>
+                    <ul>
+                        <li>&amp;lt; represents &lt; and &amp;gt; represents &gt;</li>
+                        <li>&amp;amp; represents &amp;</li>
+                        <li>&amp;nbsp; is a nonbreaking space; avoid using it for layout</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;p&gt;Copyright &amp;copy; 2026&lt;/p&gt;
+&lt;p&gt;Use &amp;lt;p&amp;gt; for paragraphs.&lt;/p&gt;
+&lt;p&gt;Tom &amp;amp; Jerry&lt;/p&gt;
+&lt;p&gt;One&amp;nbsp;word-like&amp;nbsp;group&lt;/p&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Div and Span">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 11</div>
+            <h2>Generic <em>containers.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Use these when no more meaningful element fits.</h3>
+                    <ul>
+                        <li>div is a generic block container</li>
+                        <li>span is a generic inline container</li>
+                        <li>Semantic HTML is usually clearer</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;div&gt;
+  &lt;h2&gt;Student profile&lt;/h2&gt;
+  &lt;p&gt;Hello, &lt;span&gt;Alex&lt;/span&gt;!&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Prefer semantic elements where possible --&gt;
+&lt;section&gt;
+  &lt;h2&gt;Projects&lt;/h2&gt;
+  &lt;p&gt;My recent work&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="File Paths">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 12</div>
+            <h2>Navigate with <em>paths.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Paths are relative to the current HTML file.</h3>
+                    <ul>
+                        <li>./ means the current directory</li>
+                        <li>../ means the parent directory</li>
+                        <li>Check filenames and capitalization</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;a href="about.html"&gt;Same folder&lt;/a&gt;
+&lt;a href="pages/contact.html"&gt;Subfolder&lt;/a&gt;
+&lt;a href="../index.html"&gt;Parent folder&lt;/a&gt;
+&lt;a href="./about.html"&gt;Current folder&lt;/a&gt;
+&lt;a href="https://example.com"&gt;Full URL&lt;/a&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Link Targets">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 13</div>
+            <h2>More useful <em>links.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Open external pages and email apps.</h3>
+                    <ul>
+                        <li>target="_blank" opens a new tab or window</li>
+                        <li>mailto: opens the configured email handler</li>
+                        <li>A fragment link targets an element id</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;a href="https://example.com"
+   target="_blank" rel="noopener noreferrer"&gt;
+  Visit example
+&lt;/a&gt;
+
+&lt;a href="mailto:hello@example.com"&gt;
+  Email us
+&lt;/a&gt;
+
+&lt;a href="#projects"&gt;See projects&lt;/a&gt;
+&lt;section id="projects"&gt;Projects&lt;/section&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Tables Explained">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 14</div>
+            <h2>Rows and <em>columns.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Use tables for structured data.</h3>
+                    <ul>
+                        <li>tr creates a table row</li>
+                        <li>th creates a header cell</li>
+                        <li>td creates a data cell</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;table&gt;
+  &lt;caption&gt;Student scores&lt;/caption&gt;
+  &lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Score&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Alex&lt;/td&gt;&lt;td&gt;90&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Sam&lt;/td&gt;&lt;td&gt;85&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Table Sections">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 15</div>
+            <h2>Structure a <em>data table.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Organize headers, body and footer.</h3>
+                    <ul>
+                        <li>thead groups column headings</li>
+                        <li>tbody groups table data</li>
+                        <li>tfoot groups summary rows</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;&lt;th scope="col"&gt;Item&lt;/th&gt;&lt;th scope="col"&gt;Qty&lt;/th&gt;&lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+  &lt;tr&gt;&lt;td&gt;Books&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Pens&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;/tr&gt;
+ &lt;/tbody&gt;
+ &lt;tfoot&gt;
+  &lt;tr&gt;&lt;th scope="row"&gt;Total&lt;/th&gt;&lt;td&gt;5&lt;/td&gt;&lt;/tr&gt;
+ &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Merged Cells">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 16</div>
+            <h2>Merge table <em>cells.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Use colspan and rowspan when data spans cells.</h3>
+                    <ul>
+                        <li>colspan merges columns</li>
+                        <li>rowspan merges rows</li>
+                        <li>Keep header relationships understandable</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;table&gt;
+ &lt;tr&gt;&lt;th colspan="2"&gt;Workshop&lt;/th&gt;&lt;/tr&gt;
+ &lt;tr&gt;&lt;th&gt;Day&lt;/th&gt;&lt;th&gt;Topic&lt;/th&gt;&lt;/tr&gt;
+ &lt;tr&gt;&lt;td rowspan="2"&gt;Monday&lt;/td&gt;&lt;td&gt;HTML&lt;/td&gt;&lt;/tr&gt;
+ &lt;tr&gt;&lt;td&gt;Lists&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Images and Paths">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 17</div>
+            <h2>Display an <em>image.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>The src and alt attributes are essential.</h3>
+                    <ul>
+                        <li>src is the image file location</li>
+                        <li>alt describes meaningful image content</li>
+                        <li>Width and height help reserve space</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;img src="images/student.jpg"
+     alt="Student working at a laptop"
+     width="360" height="240"&gt;
+
+&lt;!-- Decorative image --&gt;
+&lt;img src="images/decoration.png" alt=""&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Clickable Images">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 18</div>
+            <h2>Make images <em>links.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Wrap an image in an anchor.</h3>
+                    <ul>
+                        <li>The image becomes clickable</li>
+                        <li>A thumbnail can link to a full-size image</li>
+                        <li>Use descriptive alt text for linked images</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;a href="profile.html"&gt;
+  &lt;img src="images/student-small.jpg"
+       alt="View Alex’s profile" width="180"&gt;
+&lt;/a&gt;
+
+&lt;a href="images/student-large.jpg"&gt;
+  &lt;img src="images/student-small.jpg"
+       alt="View larger student photo"&gt;
+&lt;/a&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Figures">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 19</div>
+            <h2>Add image <em>captions.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>A figure groups content with its caption.</h3>
+                    <ul>
+                        <li>figure groups self-contained content</li>
+                        <li>figcaption provides a caption</li>
+                        <li>Alt text and captions serve different purposes</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;figure&gt;
+  &lt;img src="images/workshop.jpg"
+       alt="Students collaborating in a workshop"&gt;
+  &lt;figcaption&gt;
+    The Digital Hub HTML workshop
+  &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Project Organization">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 20</div>
+            <h2>Keep files <em>organized.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Separate pages and assets in a project.</h3>
+                    <ul>
+                        <li>Use clear, consistent file names</li>
+                        <li>Keep image assets in a folder</li>
+                        <li>Test links after moving files</li>
+                    </ul>
+                </div>
+                <pre><code>portfolio/
+  index.html
+  about.html
+  contact.html
+  images/
+    avatar.jpg
+    logo.png
+
+&lt;!-- Inside index.html --&gt;
+&lt;a href="about.html"&gt;About&lt;/a&gt;
+&lt;img src="images/avatar.jpg" alt="Portrait"&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Practice One">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 21</div>
+            <h2>Practice: <em>basic profile.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Build a page using HTML only.</h3>
+                    <ul>
+                        <li>Add a heading, paragraph and line break</li>
+                        <li>Add ordered and unordered lists</li>
+                        <li>Add a working link and image</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;h1&gt;My Profile&lt;/h1&gt;
+&lt;p&gt;My name is ...&lt;/p&gt;
+&lt;h2&gt;Skills&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;Problem solving&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;a href="mailto:me@example.com"&gt;Contact me&lt;/a&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide" data-title="Practice Two">
+            <div class="eyebrow">HTML FOUNDATIONS / EXTRA EXAMPLE 22</div>
+            <h2>Practice: <em>course page.</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Create a simple HTML course page.</h3>
+                    <ul>
+                        <li>Use semantic layout elements</li>
+                        <li>Include a table and at least one image</li>
+                        <li>Add navigation links and a footer</li>
+                    </ul>
+                </div>
+                <pre><code>&lt;header&gt;&lt;h1&gt;HTML Workshop&lt;/h1&gt;&lt;/header&gt;
+&lt;nav&gt;&lt;a href="#schedule"&gt;Schedule&lt;/a&gt;&lt;/nav&gt;
+&lt;main&gt;
+  &lt;section id="schedule"&gt;
+    &lt;h2&gt;Schedule&lt;/h2&gt;
+    &lt;table&gt;
+      &lt;tr&gt;&lt;th&gt;Day&lt;/th&gt;&lt;th&gt;Topic&lt;/th&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;HTML Basics&lt;/td&gt;&lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/section&gt;
+&lt;/main&gt;
+&lt;footer&gt;Digital Hub&lt;/footer&gt;</code></pre>
+            </div>
+        </section>
+        <section class="slide closing" data-title="Build a Profile Page">
+            <div class="eyebrow">18 / YOUR FIRST HTML BUILD</div>
+            <div class="centerpiece">
+                <div class="kicker">PRACTICE PROJECT</div>
+                <h1>Build a student<br /><em>profile page.</em></h1>
+                <p class="lead">Include a semantic header, an About section, a skills list, a project link, a labeled
+                    contact form, and an image with meaningful alt text.</p>
+                <div class="chips"><span>STRUCTURE</span><span>CONTENT</span><span>ACCESSIBILITY</span></div>
+            </div>
+        </section>
+    </div>
+    <div class="bottom-ui">
+        <div class="controls">
+            <button aria-label="Switch to light mode" id="themeToggle" title="Switch theme">☼</button>
+            <button aria-label="Previous slide" id="prev">←</button>
+            <span id="counter">01 / 18</span>
+            <button aria-label="Next slide" id="next">→</button>
+            <button aria-label="Fullscreen" id="full">⛶</button>
+        </div>
+        <div class="signature">
+            <span class="signature-number" id="pageNumber">01</span>
+            <span class="logo-lockup">
+                <img alt="The Digital Hub logo" src="../../assets/images/logo-transparent.png" />
+                <span class="logo-wordmark">THE DIGITAL<br />HUB</span>
+            </span>
+        </div>
+    </div>
+    <div class="progress" id="progress"></div>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
