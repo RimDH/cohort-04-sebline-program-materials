@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../../assets/images/the_digital_hub_unrwa_logo-removebg-preview.png">
+  <title>CSS From Zero | The Digital Hub</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+
+<body>
+  <div class="deck" id="deck">
+    <section class="slide active hero" data-title="CSS From Zero">
+      <div class="eyebrow"><span class="dot"></span> THE DIGITAL HUB <span class="muted">/ WEB FUNDAMENTALS</span></div>
+      <img class="hero-logo" src="../../assets/images/the-digital-hub-full-logo.png" alt="The Digital Hub">
+      <div class="hero-content">
+        <div class="kicker">FRONTEND DEVELOPMENT / CSS</div>
+        <h1>Style the web.<br><em>From zero.</em></h1>
+        <p class="lead">Learn CSS step by step: selectors, colors, spacing, Flexbox, cascade, forms, responsive design,
+          Bootstrap and SCSS.</p>
+        <div class="chips"><span>CSS BASICS</span><span>FLEXBOX</span><span>RESPONSIVE</span><span>BOOTSTRAP</span>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="What is CSS?">
+      <div class="eyebrow">01 / CSS LEARNING PATH</div>
+      <h2>What is CSS?</h2>
+      <p class="sub">CSS stands for Cascading Style Sheets. It controls how HTML content looks.</p>
+      <div class="cards">
+        <article>
+          <div class="card-icon">HTML</div>
+          <h3>Structure</h3>
+          <p>Headings, text, images and links.</p>
+        </article>
+        <article>
+          <div class="card-icon">CSS</div>
+          <h3>Appearance</h3>
+          <p>Colors, fonts, spacing and layout.</p>
+        </article>
+        <article>
+          <div class="card-icon">JS</div>
+          <h3>Behavior</h3>
+          <p>Interactions and dynamic changes.</p>
+        </article>
+      </div>
+    </section>
+    <section class="slide" data-title="Your first CSS rule">
+      <div class="eyebrow">02 / CSS LEARNING PATH</div>
+      <h2>Your first CSS rule</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Selector → property → value</h3>
+          <p>A rule selects HTML elements and declares how to style them.</p>
+          <ul>
+            <li>h1 selects all first-level headings</li>
+            <li>color is the property</li>
+            <li>blue is the value</li>
+          </ul>
+        </div>
+        <pre><code>h1 {
+  color: blue;
+  font-size: 32px;
+}
+
+/* CSS comments look like this */</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Three ways to add CSS">
+      <div class="eyebrow">03 / CSS LEARNING PATH</div>
+      <h2>Three ways to add CSS</h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">INLINE</div>
+          <pre><code>&lt;h1 style=&quot;color: blue;&quot;&gt;Hello&lt;/h1&gt;</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">INTERNAL</div>
+          <pre><code>&lt;style&gt;
+  h1 { color: blue; }
+&lt;/style&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="External CSS">
+      <div class="eyebrow">04 / CSS LEARNING PATH</div>
+      <h2>External CSS</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Separate content from styling</h3>
+          <p>Use an external stylesheet for real projects.</p>
+          <ul>
+            <li>One CSS file can style many pages</li>
+            <li>Changes are easier to maintain</li>
+            <li>Link the stylesheet in &lt;head&gt;</li>
+          </ul>
+        </div>
+        <pre><code>&lt;!-- index.html --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;h1&gt;Welcome&lt;/h1&gt;
+
+/* style.css */
+h1 { color: #1677c8; }</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="CSS selectors">
+      <div class="eyebrow">05 / CSS LEARNING PATH</div>
+      <h2>CSS selectors</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Choose what to style</h3>
+          <p>Selectors identify which elements receive declarations.</p>
+          <ul>
+            <li>Element: p</li>
+            <li>Class: .card</li>
+            <li>ID: #hero (unique in the document)</li>
+          </ul>
+        </div>
+        <pre><code>p { color: #444; }
+.card { padding: 20px; }
+#hero { background: #eef8ff; }
+
+&lt;p class=&quot;card&quot; id=&quot;hero&quot;&gt;Hi!&lt;/p&gt;</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Reusable classes">
+      <div class="eyebrow">06 / CSS LEARNING PATH</div>
+      <h2>Reusable classes</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Write once, reuse everywhere</h3>
+          <p>Classes prevent repeating the same inline styles.</p>
+          <ul>
+            <li>Use descriptive class names</li>
+            <li>One element can have multiple classes</li>
+            <li>Prefer classes for routine styling</li>
+          </ul>
+        </div>
+        <pre><code>&lt;button class=&quot;btn primary&quot;&gt;Save&lt;/button&gt;
+&lt;button class=&quot;btn&quot;&gt;Cancel&lt;/button&gt;
+
+.btn { padding: 12px 20px; }
+.primary { background: #1677c8; color: white; }</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Combining selectors">
+      <div class="eyebrow">07 / CSS LEARNING PATH</div>
+      <h2>Combining selectors</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Target elements precisely</h3>
+          <p>Use descendants, groups and pseudo-classes.</p>
+          <ul>
+            <li>.card p targets paragraphs inside cards</li>
+            <li>h1, h2 groups selectors</li>
+            <li>:hover matches pointer hover</li>
+          </ul>
+        </div>
+        <pre><code>h1, h2 { font-family: Arial; }
+.card p { color: #555; }
+.btn:hover { opacity: 0.85; }</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Colors and backgrounds">
+      <div class="eyebrow">08 / CSS LEARNING PATH</div>
+      <h2>Colors and backgrounds</h2>
+      <p class="sub">Start with a small, consistent color palette.</p>
+      <div class="cards">
+        <article>
+          <div class="card-icon">color</div>
+          <h3>Text color</h3>
+          <p>Sets the foreground color of text.</p>
+        </article>
+        <article>
+          <div class="card-icon">background</div>
+          <h3>Background</h3>
+          <p>Sets a background color or image.</p>
+        </article>
+
+      </div>
+    </section>
+    <section class="slide" data-title="Fonts and text">
+      <div class="eyebrow">09 / CSS LEARNING PATH</div>
+      <h2>Fonts and text</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Make content readable</h3>
+          <p>Typography creates hierarchy and improves reading.</p>
+          <ul>
+            <li>font-family selects the typeface</li>
+            <li>font-size controls size</li>
+            <li>line-height improves paragraph readability</li>
+          </ul>
+        </div>
+        <pre><code>body {
+  font-family: Arial, sans-serif;
+  color: #25313b;
+}
+h1 { font-size: 36px; }
+p { font-size: 16px; line-height: 1.6; }</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Margin vs padding">
+      <div class="eyebrow">10 / CSS LEARNING PATH</div>
+      <h2>Margin vs padding</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Outside vs inside</h3>
+          <p>Both create space, but in different places.</p>
+          <ul>
+            <li>Padding is inside the border</li>
+            <li>Margin is outside the border</li>
+            <li>Use spacing consistently</li>
+          </ul>
+        </div>
+        <pre><code> .card {
+  padding: 20px;
+  margin: 16px;
+  border: 1px solid #ddd;
+}</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="The box model">
+      <div class="eyebrow">11 / CSS LEARNING PATH</div>
+      <h2>The box model</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Every element occupies a box</h3>
+          <p>Element dimensions include content, padding and borders.</p>
+          <ul>
+            <li>content → padding → border → margin</li>
+            <li>box-sizing: border-box simplifies sizing</li>
+            <li>Avoid fixed heights for text-heavy content</li>
+          </ul>
+        </div>
+        <pre><code>* { box-sizing: border-box; }
+.card {
+  width: 300px;
+  padding: 20px;
+  border: 2px solid #ccc;
+}</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Sizing and units">
+      <div class="eyebrow">12 / CSS LEARNING PATH</div>
+      <h2>Sizing and units</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Choose flexible measurements</h3>
+          <p>Relative sizes help designs adapt.</p>
+          <ul>
+            <li>px for precise borders or details</li>
+            <li>rem (Root EM) & em for scalable text and spacing </li>
+            <li>% for flexible containers</li>
+          </ul>
+        </div>
+        <pre><code>.container {
+  width: 90%;
+  max-width: 1000px;
+   
+}
+p { font-size: 1rem; }</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Practice 01 · Profile page">
+      <div class="eyebrow">13 / CSS LEARNING PATH</div>
+      <h2>Practice 01 · Profile page</h2>
+      <div class="activity">
+        <div class="activity-icon">&lt;/&gt;</div>
+        <div>
+          <h3>Practice 01 · Profile page</h3>
+          <p>
+
+            <strong>Bonus:</strong> Make the page responsive for mobile screens.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="Display basics">
+      <div class="eyebrow">14 / CSS LEARNING PATH</div>
+      <h2>Display basics</h2>
+      <div class="code-layout">
+        <div>
+          <h3>How elements participate in layout</h3>
+          <p>Block and inline elements behave differently by default.</p>
+          <ul>
+            <li>block starts on a new line</li>
+            <li>inline flows with text</li>
+            <li>inline-block accepts dimensions while remaining inline</li>
+          </ul>
+        </div>
+        <pre><code>div { display: block; }
+span { display: inline; }
+.badge { display: inline-block; padding: 6px; }</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Introducing Flexbox">
+      <div class="eyebrow">15 / CSS LEARNING PATH</div>
+      <h2>Introducing Flexbox</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Layout along one axis</h3>
+          <p>Flexbox arranges children in a row or column.</p>
+          <ul>
+            <li>Set display: flex on the parent</li>
+            <li>Children become flex items</li>
+            <li>The main axis depends on flex-direction</li>
+          </ul>
+        </div>
+        <pre><code>.row {
+  display: flex;
+  gap: 16px;
+}
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div&gt;One&lt;/div&gt;&lt;div&gt;Two&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Flex direction">
+      <div class="eyebrow">16 / CSS LEARNING PATH</div>
+      <h2>Flex direction</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Row or column?</h3>
+          <p>Choose the direction that matches the content.</p>
+          <ul>
+            <li>row places items horizontally</li>
+            <li>column stacks items vertically</li>
+            <li>gap creates space between flex items</li>
+          </ul>
+        </div>
+        <pre><code>.navigation {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.mobile-list { flex-direction: column; }</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Flex alignment">
+      <div class="eyebrow">17 / CSS LEARNING PATH</div>
+      <h2>Flex alignment</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Control available space</h3>
+          <p>Understand main-axis and cross-axis alignment.</p>
+          <ul>
+            <li>justify-content controls the main axis</li>
+            <li>align-items controls the cross axis</li>
+            <li>center is not always the best choice</li>
+          </ul>
+        </div>
+        <pre><code>.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Flex wrapping">
+      <div class="eyebrow">18 / CSS LEARNING PATH</div>
+      <h2>Flex wrapping</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Allow items to move to new lines</h3>
+          <p>Avoid horizontal overflow when items do not fit.</p>
+          <ul>
+            <li>flex-wrap: wrap permits multiple lines</li>
+            <li>flex: 1 1 220px allows flexible cards</li>
+            <li>Avoid forcing fixed widths on small screens</li>
+          </ul>
+        </div>
+        <pre><code>.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.card { flex: 1 1 220px; }</code></pre>
+      </div>
+    </section>
+
+    <section class="slide" data-title="What is the cascade?">
+      <div class="eyebrow">19 / CSS LEARNING PATH</div>
+      <h2>What is the cascade?</h2>
+      <p class="sub">When multiple declarations affect the same property, CSS decides which one applies.</p>
+      <div class="cards">
+        <article>
+          <div class="card-icon">01</div>
+          <h3>Importance &amp; origin</h3>
+          <p>Normal and important declarations follow cascade priority.</p>
+        </article>
+        <article>
+          <div class="card-icon">02</div>
+          <h3>Specificity</h3>
+          <p>Selectors differ in how specifically they target an element.</p>
+        </article>
+        <article>
+          <div class="card-icon">03</div>
+          <h3>Source order</h3>
+          <p>If competing declarations tie, the later one wins.</p>
+        </article>
+      </div>
+    </section>
+    <section class="slide" data-title="Cascade in action">
+      <div class="eyebrow">20 / CSS LEARNING PATH</div>
+      <h2>Cascade in action</h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">HTML</div>
+          <pre><code>&lt;p class=&quot;notice&quot;&gt;Hello!&lt;/p&gt;</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">CSS</div>
+          <pre><code>p { color: blue; }
+.notice { color: red; }
+
+/* Text is red: class is more specific. */</code></pre>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="Specificity">
+      <div class="eyebrow">21 / CSS LEARNING PATH</div>
+      <h2>Specificity</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Which selector wins?</h3>
+          <p>Compare selector specificity within the same cascade priority.</p>
+          <ul>
+            <li>ID selectors outrank classes</li>
+            <li>Classes outrank type selectors</li>
+            <li>Avoid unnecessary !important</li>
+          </ul>
+        </div>
+        <pre><code>p { color: blue; }
+.note { color: green; }
+#warning { color: red; }
+
+&lt;p id=&quot;warning&quot; class=&quot;note&quot;&gt;Alert&lt;/p&gt;
+/* Result: red */</code></pre>
+      </div>
+    </section>
+
+
+
+    <section class="slide" data-title="Responsive design">
+      <div class="eyebrow">22 / CSS LEARNING PATH</div>
+      <h2>Responsive design</h2>
+      <p class="sub">A responsive page adapts to the available screen width.</p>
+      <div class="cards">
+        <article>
+          <div class="card-icon">PHONE</div>
+          <h3>Small screens</h3>
+          <p>Readable text, stacked content and comfortable tap targets.</p>
+        </article>
+        <article>
+          <div class="card-icon">TABLET</div>
+          <h3>Medium screens</h3>
+          <p>More room for cards and navigation.</p>
+        </article>
+        <article>
+          <div class="card-icon">DESKTOP</div>
+          <h3>Large screens</h3>
+          <p>Wider layouts without excessively long text lines.</p>
+        </article>
+      </div>
+    </section>
+    <section class="slide" data-title="Mobile-first CSS">
+      <div class="eyebrow">23 / CSS LEARNING PATH</div>
+      <h2>Mobile-first CSS</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Start with the smallest layout</h3>
+          <p>Write base styles for phones, then enhance for larger screens.</p>
+          <ul>
+            <li>Use flexible widths</li>
+            <li>Keep content readable without zooming</li>
+            <li>Add min-width media queries as needed</li>
+          </ul>
+        </div>
+        <pre><code>.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media (min-width: 768px) {
+  .cards { flex-direction: row; }
+}</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Media queries">
+      <div class="eyebrow">24 / CSS LEARNING PATH</div>
+      <h2>Media queries</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Apply styles conditionally</h3>
+          <p>Media queries respond to viewport conditions.</p>
+          <ul>
+            <li>Choose breakpoints based on content</li>
+            <li>Test widths between common devices</li>
+            <li>Do not depend on device model names</li>
+          </ul>
+        </div>
+        <pre><code>h1 { font-size: 2rem; }
+
+@media (min-width: 768px) {
+  h1 { font-size: 3.5rem; }
+}</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Responsive Flexbox">
+      <div class="eyebrow">25 / CSS LEARNING PATH</div>
+      <h2>Responsive Flexbox</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Stack on phones, align on desktops</h3>
+          <p>Flex direction can change at a breakpoint.</p>
+          <ul>
+            <li>Start with flex-direction: column</li>
+            <li>Switch to row when space allows</li>
+            <li>Allow wrapping when needed</li>
+          </ul>
+        </div>
+        <pre><code>.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+@media (min-width: 800px) {
+  .hero { flex-direction: row; }
+}</code></pre>
+      </div>
+    </section>
+
+
+    <section class="slide" data-title="What is Bootstrap?">
+      <div class="eyebrow">26 / CSS LEARNING PATH</div>
+      <h2>What is Bootstrap?</h2>
+      <p class="sub">Bootstrap provides ready-made styles and components. Learn plain CSS first.</p>
+      <div class="cards">
+        <article>
+          <div class="card-icon">01</div>
+          <h3>Components</h3>
+          <p>Buttons, cards, alerts and form controls.</p>
+        </article>
+        <article>
+          <div class="card-icon">02</div>
+          <h3>Utilities</h3>
+          <p>Classes for spacing, colors and Flexbox.</p>
+        </article>
+        <article>
+          <div class="card-icon">03</div>
+          <h3>Speed</h3>
+          <p>Prototype a consistent interface more quickly.</p>
+        </article>
+      </div>
+    </section>
+    <section class="slide" data-title="Bootstrap setup">
+      <div class="eyebrow">27 / CSS LEARNING PATH</div>
+      <h2>Bootstrap setup</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Include Bootstrap CSS</h3>
+          <p>Use a versioned official Bootstrap CDN link in your HTML.</p>
+          <ul>
+            <li>The browser loads prebuilt component styles</li>
+            <li>Your custom stylesheet can come afterward</li>
+            <li>Interactive Bootstrap components need its JS bundle</li>
+          </ul>
+        </div>
+        <pre><code>&lt;!-- Example: link to Bootstrap 5 CSS --&gt;
+&lt;link rel=&quot;stylesheet&quot;
+ href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css&quot;&gt;
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Bootstrap utilities">
+      <div class="eyebrow">28 / CSS LEARNING PATH</div>
+      <h2>Bootstrap utilities</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Reuse ready-made classes</h3>
+          <p>Bootstrap offers spacing and Flexbox utilities without writing every declaration.</p>
+
+        </div>
+        <pre><code>&lt;div class=&quot;d-flex flex-wrap gap-3&quot;&gt;
+  &lt;button class=&quot;btn btn-primary&quot;&gt;Save&lt;/button&gt;
+  &lt;button class=&quot;btn btn-outline-secondary&quot;&gt;Cancel&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Bootstrap forms">
+      <div class="eyebrow">29 / CSS LEARNING PATH</div>
+      <h2>Bootstrap forms</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Use consistent form controls</h3>
+          <p>Semantic HTML still matters when using Bootstrap.</p>
+          <ul>
+            <li>form-label styles labels</li>
+            <li>form-control styles inputs</li>
+            <li>btn styles buttons</li>
+          </ul>
+        </div>
+        <pre><code>&lt;label for=&quot;name&quot; class=&quot;form-label&quot;&gt;Name&lt;/label&gt;
+&lt;input id=&quot;name&quot; class=&quot;form-control&quot;
+       type=&quot;text&quot; required&gt;
+&lt;button class=&quot;btn btn-primary mt-3&quot;&gt;
+  Register
+&lt;/button&gt;</code></pre>
+      </div>
+    </section>
+
+    <section class="slide" data-title="What is SCSS?">
+      <div class="eyebrow">30 / CSS LEARNING PATH</div>
+      <h2>What is SCSS?</h2>
+      <p class="sub">SCSS is a Sass syntax that compiles into standard CSS.</p>
+      <div class="cards">
+        <article>
+          <div class="card-icon">$</div>
+          <h3>Variables</h3>
+          <p>Reuse design values like colors.</p>
+        </article>
+        <article>
+          <div class="card-icon">&amp;</div>
+          <h3>Nesting</h3>
+          <p>Keep related selectors together.</p>
+        </article>
+        <article>
+          <div class="card-icon">@</div>
+          <h3>Mixins</h3>
+          <p>Reuse groups of CSS declarations.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" data-title="SCSS variables">
+      <div class="eyebrow">31 / CSS LEARNING PATH</div>
+      <h2>SCSS variables</h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">SCSS</div>
+          <pre><code>$brand: #1677c8;
+.button {
+  background: $brand;
+  color: white;
+}</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">COMPILED CSS</div>
+          <pre><code>.button {
+  background: #1677c8;
+  color: white;
+}</code></pre>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="SCSS nesting and mixins">
+      <div class="eyebrow">32 / CSS LEARNING PATH</div>
+      <h2>SCSS nesting and mixins</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Organize reusable patterns</h3>
+          <p>Keep nesting shallow to avoid overly complex selectors.</p>
+          <ul>
+            <li>&amp; refers to the parent selector</li>
+            <li>@mixin defines reusable declarations</li>
+            <li>@include inserts them</li>
+          </ul>
+        </div>
+        <pre><code>@mixin pill($bg) {
+  background: $bg;
+  border-radius: 999px;
+}
+.btn {
+  @include pill(#1677c8);
+  &amp;:hover { opacity: .9; }
+}</code></pre>
+      </div>
+    </section>
+
+
+
+  </div>
+  <div class="bottom-ui">
+    <div class="controls"><button id="themeToggle" aria-label="Switch to light mode"
+        title="Switch theme">&#9788;</button><button id="prev" aria-label="Previous slide">&larr;</button><span
+        id="counter">01 / 46</span><button id="next" aria-label="Next slide">&rarr;</button><button id="full"
+        aria-label="Fullscreen">&#x26F6;</button></div>
+    <div class="signature"><span class="signature-number" id="pageNumber">01</span><span class="logo-lockup"><img
+          src="../../assets/images/logo-transparent.png" alt="The Digital Hub logo"><span class="logo-wordmark">THE
+          DIGITAL<br>HUB</span></span></div>
+  </div>
+  <div class="progress" id="progress"></div>
+  <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
