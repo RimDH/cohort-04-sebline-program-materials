@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../../assets/images/the_digital_hub_unrwa_logo-removebg-preview.png">
+    <title>Git &amp; GitHub Mastery | The Digital Hub</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        /* Readability overrides for Git & GitHub teaching slides. */
+        .slide:not(.hero) h2 {
+            font-size: clamp(46px, 4.5vw, 62px);
+            line-height: 1.12;
+            margin-bottom: 24px;
+        }
+
+        .slide .lesson-content {
+            font-size: 27px;
+            line-height: 1.48;
+            max-width: 1190px;
+        }
+
+        .slide .lesson-content p,
+        .slide .lesson-content li {
+            font-size: 27px;
+            line-height: 1.48;
+        }
+
+        .slide .lesson-content ol,
+        .slide .lesson-content ul {
+            padding-left: 36px;
+            margin: 16px 0;
+        }
+
+        .slide .lesson-content h3 {
+            font-size: 34px;
+            margin: 18px 0 12px;
+        }
+
+        .slide .lesson-content pre {
+            font-size: 24px;
+            line-height: 1.45;
+            padding: 22px 26px;
+            margin: 16px 0;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .slide .lesson-content a {
+            color: var(--cyan);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .slide .lesson-content .feature-tag {
+            display: inline-block;
+            font-size: 21px;
+            border: 1px solid var(--cyan);
+            border-radius: 5px;
+            padding: 9px 15px;
+            margin: 12px 10px 0 0;
+            color: var(--cyan);
+        }
+
+        .slide .lesson-content .compare p {
+            font-size: 24px;
+        }
+
+        .slide .lesson-content .compare {
+            margin-top: 20px;
+        }
+
+        .slide .lesson-content .compare>div {
+            min-height: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="deck" id="deck">
+        <section class="slide active hero" data-title="Git &amp; GitHub Mastery">
+            <div class="eyebrow"><span class="dot"></span> THE DIGITAL HUB <span class="muted">/ WEB DEVELOPMENT</span>
+            </div><img class="hero-logo" src="../../assets/images/the-digital-hub-full-logo.png" alt="The Digital Hub">
+            <div class="hero-content">
+                <div class="kicker">DEVELOPER TOOLS / VERSION CONTROL</div>
+                <h1>Git &amp; GitHub<br><em>Mastery.</em></h1>
+                <p class="lead">Version Control Workflow for Professional Developers</p>
+                <div class="chips"><span>GIT</span><span>GITHUB</span><span>WORKFLOW</span></div>
+            </div>
+        </section>
+        <section class="slide" data-title="What is Git vs. GitHub?">
+            <div class="eyebrow">01 / GIT &amp; GITHUB</div>
+            <h2>What is Git vs. GitHub?</h2>
+            <div class="lesson-content">
+                <div class="compare">
+                    <div>
+                        <h3>◆ Git (The Engine)</h3>
+                        <p>A <strong>Distributed Version Control System</strong> that tracks changes in your local
+                            files. It
+                            works offline.</p>
+                        <div class="feature-tag">Snapshots</div>
+                        <div class="feature-tag">Local</div>
+                    </div>
+                    <div>
+                        <h3>◆ GitHub (The Cloud)</h3>
+                        <p>A cloud platform to host Git repositories. It enables <strong>collaboration</strong>, Code
+                            Review.</p>
+                        <div class="feature-tag">Remote</div>
+
+                    </div>
+                </div>
+                <h3>Key Terms</h3>
+                <p><strong>Repository:</strong> Your project folder. <strong>Commit:</strong> A saved snapshot.
+                    <strong>Branch:</strong> A parallel version of code.
+                </p>
+            </div>
+        </section>
+        <section class="slide" data-title="01. Installation &amp; Verification">
+            <div class="eyebrow">02 / GIT &amp; GITHUB</div>
+            <h2>01. Installation &amp; Verification</h2>
+            <div class="lesson-content">
+                <p>Before coding, ensure Git is installed on your machine.</p>
+                <ol>
+                    <li><strong>Create Account:</strong> Sign up at <a href="https://github.com">github.com</a></li>
+                    <li><strong>Download Git:</strong> Visit <a href="https://git-scm.com/downloads">git-scm.com</a>
+                    </li>
+                </ol>
+                <h3>Verify Installation</h3>
+                <pre>git --version</pre>
+                <p>If you see a version number (e.g., 2.x.x), you are ready to go.</p>
+            </div>
+        </section>
+        <section class="slide" data-title="02. Global Git Configuration">
+            <div class="eyebrow">03 / GIT &amp; GITHUB</div>
+            <h2>02. Global Git Configuration</h2>
+            <div class="lesson-content">
+                <p>Set your identity so your commits are attributed to you.</p>
+                <pre>
+git config --global user.name "Your Full Name"
+git config --global user.email "YourEmail@test.com"
+git config --global init.defaultBranch main
+git config --global core.editor "code --wait"</pre>
+                <p><em>The last command ensures VS Code is your default editor for commit messages.</em></p>
+            </div>
+        </section>
+        <section class="slide" data-title="03. SSH + Secure Connection">
+            <div class="eyebrow">04 / GIT &amp; GITHUB</div>
+            <h2>03. SSH + Secure Connection</h2>
+            <div class="lesson-content">
+                <p>Instead of typing your password every time, use <strong>SSH Keys</strong> for secure, automated
+                    authentication.</p>
+                <ol>
+                    <li>Open Git Bash and generate key:
+                        <pre>ssh-keygen -t ed25519 -C "Youremail@test.com"</pre>
+                    </li>
+                    <li>Start the agent and copy the key:
+                        <pre>eval "$(ssh-agent -s)"
+cat ~/.ssh/id_ed25519.pub</pre>
+                    </li>
+                </ol>
+            </div>
+        </section>
+        <section class="slide" data-title="Connecting to GitHub">
+            <div class="eyebrow">05 / GIT &amp; GITHUB</div>
+            <h2>Connecting to GitHub</h2>
+            <div class="lesson-content">
+                <p>1. Copy the output from the previous slide starting with <code>ssh-ed25519...</code></p>
+                <p>2. Go to GitHub: <strong>Settings -&gt; SSH and GPG keys -&gt; New SSH key</strong>.</p>
+                <h3>Test Connection</h3>
+                <pre>ssh -T git@github.com</pre>
+                <p>If successful, you'll see: <em>"Hi [User]! You've successfully authenticated..."</em></p>
+            </div>
+        </section>
+        <section class="slide" data-title="04. Cloning &amp; Initializing">
+            <div class="eyebrow">06 / GIT &amp; GITHUB</div>
+            <h2>04. Cloning &amp; Initializing</h2>
+            <div class="lesson-content">
+                <h3>Option A: Clone an existing repo</h3>
+                <pre>git clone git@github.com:USERNAME/proj_name.git</pre>
+                <h3>Option B: Initialize in an existing local folder</h3>
+                <pre>
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin SSH_LINK_OF_YOUR_REPO
+git push origin main</pre>
+            </div>
+        </section>
+        <section class="slide" data-title="05. The &quot;Big Three&quot; Workflow">
+            <div class="eyebrow">07 / GIT &amp; GITHUB</div>
+            <h2>05. The &quot;Big Three&quot; Workflow</h2>
+            <div class="lesson-content">
+                <p>The daily cycle of a developer:</p>
+                <pre>
+git add .               # Stage all changes
+git commit -m "Comment" # Save snapshot locally
+git push origin main    # Upload to the cloud</pre>
+                <div class="feature-tag">Staging Area</div>
+                <div class="feature-tag">Local Repo</div>
+                <div class="feature-tag">Remote Repo</div>
+            </div>
+        </section>
+        <section class="slide" data-title="06. Feature Branching">
+            <div class="eyebrow">08 / GIT &amp; GITHUB</div>
+            <h2>06. Feature Branching</h2>
+            <div class="lesson-content">
+                <p>Never work directly on <code>main</code>. Create a branch for new features.</p>
+                <pre>
+git branch my-new-branch      # Create
+git checkout my-new-branch    # Switch to it
+# ... make changes ...
+git push -u origin my-new-branch</pre>
+                <p><strong>Note:</strong> <code>-u</code> sets the "upstream" so you can just type <code>git push</code>
+                    next time.</p>
+            </div>
+        </section>
+        <section class="slide" data-title="07. Merging Local Updates">
+            <div class="eyebrow">09 / GIT &amp; GITHUB</div>
+            <h2>07. Merging Local Updates</h2>
+            <div class="lesson-content">
+                <p>After your feature is done, bring those changes into <code>main</code>.</p>
+                <pre>
+git checkout main         # Go to main
+git pull origin main      # Get latest updates from others
+git merge origin/my-new-branch
+git push origin main</pre>
+                <p>Repeat this for every branch to keep the project synchronized.</p>
+            </div>
+        </section>
+        <section class="slide" data-title="Syncing the Team">
+            <div class="eyebrow">10 / GIT &amp; GITHUB</div>
+            <h2>Syncing the Team</h2>
+            <div class="lesson-content">
+                <p>After a merge, every developer needs to update their local branch.</p>
+                <pre>git pull origin main</pre>
+                <h3>What is "Fetch"?</h3>
+                <p><code>git fetch origin</code> downloads the latest history from GitHub but **does not touch your
+                    files**.
+                    It's safe to run anytime to "look" at what others have done.</p>
+            </div>
+        </section>
+
+        <section class="slide" data-title="Essential Git &amp; GitHub Terms (1)">
+            <div class="eyebrow">13 / GIT &amp; GITHUB</div>
+            <h2>Essential Git &amp; GitHub Terms (1)</h2>
+            <div class="compare">
+                <div>
+                    <div class="compare-label">KEY VOCABULARY</div>
+                    <ul>
+                        <li><strong>Repository (Repo):</strong> A project folder tracked by Git that contains your code
+                            and
+                            history.</li>
+                        <li><strong>Commit:</strong> A saved snapshot of your project's changes at a specific point in
+                            time.
+                        </li>
+                        <li><strong>Branch:</strong> An independent version of your code used to develop features
+                            without
+                            affecting the main project.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="compare-label">MORE TERMS</div>
+                    <ul>
+                        <li><strong>Main Branch:</strong> The primary branch that usually contains the stable version of
+                            the
+                            project.</li>
+                        <li><strong>Clone:</strong> Creating a copy of a remote repository on your local machine.</li>
+                        <li><strong>Remote Repository:</strong> A repository hosted online, such as on GitHub.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="slide" data-title="Essential Git &amp; GitHub Terms (2)">
+            <div class="eyebrow">14 / GIT &amp; GITHUB</div>
+            <h2>Essential Git &amp; GitHub Terms (2)</h2>
+            <div class="compare">
+                <div>
+                    <div class="compare-label">KEY VOCABULARY</div>
+                    <ul>
+                        <li><strong>Push:</strong> Uploading your local commits to a remote repository.</li>
+                        <li><strong>Pull:</strong> Downloading and integrating changes from a remote repository.</li>
+                        <li><strong>Fetch:</strong> Retrieving updates from a remote repository without merging them.
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="compare-label">MORE TERMS</div>
+                    <ul>
+                        <li><strong>Merge:</strong> Combining changes from one branch into another.</li>
+                        <li><strong>Pull Request (PR):</strong> A request to review and merge changes from one branch
+                            into
+                            another on GitHub.</li>
+                        <li><strong>Conflict:</strong> A situation where Git cannot automatically merge changes because
+                            the same
+                            code was modified differently.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="slide" data-title="Essential Git &amp; GitHub Terms (3)">
+            <div class="eyebrow">15 / GIT &amp; GITHUB</div>
+            <h2>Essential Git &amp; GitHub Terms (3)</h2>
+            <div class="compare">
+                <div>
+                    <div class="compare-label">KEY VOCABULARY</div>
+                    <ul>
+                        <li><strong>Staging Area:</strong> A temporary area where changes are prepared before being
+                            committed.
+                        </li>
+                        <li><strong>git add:</strong> A command used to move changes into the staging area.</li>
+                        <li><strong>git commit:</strong> A command used to save staged changes to the repository
+                            history.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="compare-label">MORE TERMS</div>
+                    <ul>
+                        <li><strong>git status:</strong> A command that shows the current state of your working
+                            directory and
+                            staged files.</li>
+                        <li><strong>git log:</strong> A command that displays the commit history of a repository.</li>
+                        <li><strong>git stash:</strong> A command that temporarily saves uncommitted changes so you can
+                            work on
+                            something else.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="slide" data-title="Essential Git &amp; GitHub Terms (4)">
+            <div class="eyebrow">16 / GIT &amp; GITHUB</div>
+            <h2>Essential Git &amp; GitHub Terms (4)</h2>
+            <div class="compare">
+                <div>
+                    <div class="compare-label">KEY VOCABULARY</div>
+                    <ul>
+                        <li><strong>.gitignore:</strong> A file that tells Git which files and folders should not be
+                            tracked.
+                        </li>
+                        <li><strong>README:</strong> A file that explains the project, setup instructions, and usage
+                            information.</li>
+                        <li><strong>Fork:</strong> Creating your own copy of someone else's GitHub repository.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="compare-label">MORE TERMS</div>
+                    <ul>
+                        <li><strong>Issue:</strong> A GitHub feature used to track bugs, tasks, or feature requests.
+                        </li>
+                        <li><strong>Release:</strong> A published version of a project, often associated with a specific
+                            milestone.</li>
+                        <li><strong>Open Source:</strong> Software whose source code is publicly available for anyone to
+                            view
+                            and contribute to.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="slide" data-title="Pro Features to Know">
+            <div class="eyebrow">17 / GIT &amp; GITHUB</div>
+            <h2>Pro Features to Know</h2>
+            <div class="lesson-content">
+                <ul>
+                    <li><strong>Pull Requests (PR):</strong> Asking teammates to review code before merging on GitHub.
+                    </li>
+                    <li><strong>.gitignore:</strong> A file that tells Git which files (like passwords) to ignore.</li>
+                    <li><strong>README:</strong> A file that provides information about the project, including its
+                        purpose,
+                        setup instructions, and usage guidelines.</li>
+                </ul>
+            </div>
+        </section>
+        <section class="slide" data-title="Git Ready!">
+            <div class="eyebrow">18 / GIT &amp; GITHUB</div>
+            <h2>Git Ready!</h2>
+            <div class="lesson-content">
+                <p style="text-align: center;">You now have a professional version control setup.</p>
+                <div class="compare">
+                    <div><strong>Local Power</strong>
+                        <p>Track history, branch out, and experiment safely.</p>
+                    </div>
+                    <div><strong>Global Collab</strong>
+                        <p>Sync with teams and host code on GitHub.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="bottom-ui">
+        <div class="controls"><button id="themeToggle" aria-label="Switch theme">☼</button><button id="prev"
+                aria-label="Previous slide">←</button><span id="counter">01 / 01</span><button id="next"
+                aria-label="Next slide">→</button><button id="full" aria-label="Fullscreen">⛶</button></div>
+        <div class="signature"><span class="signature-number" id="pageNumber">01</span><span class="logo-lockup"><img
+                    src="../../assets/images/logo-transparent.png" alt="The Digital Hub logo"><span
+                    class="logo-wordmark">THE DIGITAL<br>HUB</span></span></div>
+    </div>
+    <div class="progress" id="progress"></div>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>

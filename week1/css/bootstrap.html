@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <link href="../../assets/images/the_digital_hub_unrwa_logo-removebg-preview.png" rel="icon" type="image/png" />
+  <title>Bootstrap Fundamentals | The Digital Hub</title>
+  <link href="../../assets/css/style.css" rel="stylesheet" />
+  <style>
+    /* Bootstrap teaching demos: isolated from presentation styles */
+    .bs-demo {
+      background: #f7f9fc;
+      color: #172438;
+      border: 1px solid #dce3ed;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 12px 0;
+      font-size: 16px;
+      line-height: 1.5
+    }
+
+    .bs-demo-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .bs-btn {
+      display: inline-block;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      background: #e9ecef;
+      color: #212529
+    }
+
+    .bs-btn.primary {
+      background: #0d6efd;
+      color: white
+    }
+
+    .bs-btn.success {
+      background: #198754;
+      color: white
+    }
+
+    .bs-btn.danger {
+      background: #dc3545;
+      color: white
+    }
+
+    .bs-btn.warning {
+      background: #ffc107;
+      color: #212529
+    }
+
+    .bs-btn.outline {
+      background: transparent;
+      border-color: #6c757d;
+      color: #6c757d
+    }
+
+    .bs-pad {
+      padding: 16px;
+      background: #0d6efd;
+      color: #fff;
+      border-radius: 5px
+    }
+
+    .bs-margin {
+      margin-top: 16px;
+      padding: 10px;
+      background: #dce6f6;
+      border-radius: 5px
+    }
+
+    .bs-card {
+      border: 1px solid #d6dce4;
+      border-radius: 8px;
+      padding: 14px;
+      max-width: 270px;
+      background: white
+    }
+
+    .bs-card-title {
+      font-weight: 750;
+      font-size: 19px
+    }
+
+    .bs-card p {
+      margin: 6px 0 12px;
+      color: #48566a
+    }
+
+    .bs-alert {
+      margin-top: 12px;
+      background: #d1e7dd;
+      border: 1px solid #a3cfbb;
+      border-radius: 6px;
+      padding: 9px;
+      color: #0a3622
+    }
+
+    .bs-label {
+      display: block;
+      font-weight: 600;
+      margin: 9px 0 5px
+    }
+
+    .bs-input {
+      display: block;
+      width: 100%;
+      max-width: 370px;
+      box-sizing: border-box;
+      border: 1px solid #adb5bd;
+      border-radius: 6px;
+      padding: 9px;
+      background: white;
+      color: #172438;
+      font-size: 15px
+    }
+
+    .bs-fluid {
+      background: #d8e8ff;
+      padding: 12px;
+      text-align: center;
+      border-radius: 6px
+    }
+
+    .bs-container {
+      background: #0d6efd;
+      color: white;
+      max-width: 65%;
+      margin: 12px auto 0;
+      padding: 12px;
+      border-radius: 6px
+    }
+
+    .bs-grid {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 7px 0
+    }
+
+    .bs-col {
+      box-sizing: border-box;
+      border: 3px solid #f7f9fc;
+      border-radius: 7px;
+      background: #0d6efd;
+      color: white;
+      text-align: center;
+      padding: 12px
+    }
+
+    .bp-table {
+      display: grid;
+      gap: 2px;
+      font-size: clamp(14px, 1.5vw, 21px);
+      margin-top: 12px
+    }
+
+    .bp-table>div {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr 1.5fr;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 5px;
+      background: rgba(120, 160, 180, .10)
+    }
+
+    .bp-table>div:first-child {
+      background: rgba(0, 195, 225, .16)
+    }
+
+    .bp-table b {
+      color: #00c6d7
+    }
+
+    .bs-size-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0
+    }
+
+    .bs-size-buttons button {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #12bfd0;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      font-size: 14px
+    }
+
+    .bs-size-buttons button.selected {
+      background: #0bbfd1;
+      color: #041019
+    }
+
+    .bs-preview-wrap {
+      width: 100%;
+      height: 235px;
+      overflow: hidden;
+      border: 1px solid #53636a;
+      border-radius: 10px;
+      background: #151b22;
+      position: relative
+    }
+
+    .bs-preview {
+      box-sizing: border-box;
+      background: #fff;
+      color: #142033;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      height: 100%;
+      transform-origin: top center;
+      transition: width .2s ease, transform .2s ease
+    }
+
+    .bs-preview-head {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px;
+      background: #e9eef5;
+      font-weight: 700;
+      font-size: 17px
+    }
+
+    .bs-preview-grid {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 12px
+    }
+
+    .bs-preview-grid>div {
+      box-sizing: border-box;
+      background: #0d6efd;
+      color: white;
+      border: 4px solid white;
+      border-radius: 9px;
+      text-align: center;
+      padding: 32px 8px;
+      font-weight: 700;
+      font-size: 18px
+    }
+
+    .bs-note {
+      font-size: 14px;
+      opacity: .8;
+      margin-top: 8px
+    }
+
+    .bs-navbar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap
+    }
+
+    .bs-navbar strong {
+      margin-right: auto
+    }
+
+    .bs-navbar span {
+      font-size: 15px
+    }
+
+    /* Readability in this presentation, without changing shared styles */
+    .slide:not(.hero) p,
+    .slide:not(.hero) li {
+      font-size: clamp(17px, 1.6vw, 23px);
+      line-height: 1.4
+    }
+
+    .slide:not(.hero) h3 {
+      font-size: clamp(21px, 2vw, 28px)
+    }
+
+    .slide:not(.hero) pre {
+      font-size: clamp(13px, 1.2vw, 18px);
+      line-height: 1.35;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere
+    }
+
+    .slide:not(.hero) .bs-demo p {
+      font-size: 16px
+    }
+
+    .slide:not(.hero) .bs-note {
+      font-size: 14px
+    }
+
+    .slide:not(.hero) .bp-table {
+      font-size: clamp(14px, 1.5vw, 20px)
+    }
+
+    /* Presentation readability improvements: override template typography */
+    .slide:not(.hero) .code-layout p,
+    .slide:not(.hero) .code-layout li,
+    .slide:not(.hero) p:not(.bs-note),
+    .slide:not(.hero) li {
+      font-size: clamp(22px, 1.9vw, 28px) !important;
+      line-height: 1.48 !important;
+    }
+
+    .slide:not(.hero) h3 {
+      font-size: clamp(27px, 2.35vw, 34px) !important;
+      line-height: 1.22 !important;
+    }
+
+    .slide:not(.hero) pre,
+    .slide:not(.hero) pre code {
+      font-size: clamp(19px, 1.5vw, 23px) !important;
+      line-height: 1.48 !important;
+    }
+
+    .slide:not(.hero) .sub {
+      font-size: clamp(23px, 1.9vw, 28px) !important;
+    }
+
+    .slide:not(.hero) .code-layout {
+      gap: 28px;
+      align-items: start;
+    }
+
+    .slide:not(.hero) .bs-demo {
+      font-size: 19px;
+    }
+
+    .slide:not(.hero) .bs-demo p {
+      font-size: 19px !important;
+    }
+
+    .slide:not(.hero) .bs-note {
+      font-size: 17px !important;
+    }
+
+    .slide:not(.hero) .bp-table {
+      font-size: clamp(19px, 1.65vw, 24px) !important;
+    }
+
+    .slide:not(.hero) .bs-size-buttons button {
+      font-size: 19px;
+    }
+
+    /* Denser slides can still fit within the fixed presentation viewport. */
+    .slide[data-title="Bootstrap breakpoints"] .sub {
+      font-size: 22px !important;
+    }
+
+    .slide[data-title="Bootstrap breakpoints"] .bp-table {
+      font-size: 20px !important;
+    }
+
+    @media (max-width: 1000px) {
+
+      .slide:not(.hero) .code-layout p,
+      .slide:not(.hero) p:not(.bs-note),
+      .slide:not(.hero) li {
+        font-size: 21px !important;
+      }
+
+      .slide:not(.hero) pre,
+      .slide:not(.hero) pre code {
+        font-size: 18px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="deck" id="deck">
+    <section class="slide active hero" data-title="Bootstrap Fundamentals">
+      <div class="eyebrow"><span class="dot"></span> THE DIGITAL HUB <span class="muted">/ FRONTEND DEVELOPMENT</span>
+      </div><img alt="The Digital Hub" class="hero-logo" src="../../assets/images/the-digital-hub-full-logo.png" />
+      <div class="hero-content">
+        <div class="kicker">WEB DEVELOPMENT / BOOTSTRAP 5</div>
+        <h1>Build faster.<br /><em>Design responsively.</em></h1>
+        <p class="lead">Bootstrap components, utilities, the 12-column layout, and live breakpoint examples.</p>
+        <div class="chips"><span>COMPONENTS</span><span>GRID</span><span>BREAKPOINTS</span><span>EXAMPLES</span></div>
+      </div>
+    </section>
+    <section class="slide" data-title="What is Bootstrap?">
+      <div class="eyebrow">01 / BOOTSTRAP FUNDAMENTALS</div>
+      <h2>What is <em>Bootstrap?</em></h2>
+      <p class="sub">A CSS framework with ready-made classes for responsive layouts and common UI components.</p>
+      <div class="cards">
+        <article>
+          <div class="card-icon">UI</div>
+          <h3>Components</h3>
+          <p>Buttons, cards, alerts, navbars and forms.</p>
+        </article>
+        <article>
+          <div class="card-icon">12</div>
+          <h3>Layout</h3>
+          <p>A responsive, 12-column grid system.</p>
+        </article>
+        <article>
+          <div class="card-icon">CSS</div>
+          <h3>Utilities</h3>
+          <p>Spacing, colors, display, flex and sizing.</p>
+        </article>
+      </div>
+    </section>
+    <section class="slide" data-title="Set up Bootstrap">
+      <div class="eyebrow">02 / BOOTSTRAP FUNDAMENTALS</div>
+      <h2>Start with a <em>CDN</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Add Bootstrap to HTML</h3>
+          <p>Put the CSS link in <code>&lt;head&gt;</code>. The JS bundle is needed for interactive components like
+            dropdowns and modals.</p>
+          <p>Keep your own stylesheet <strong>after</strong> Bootstrap to customize it.</p>
+        </div>
+        <pre><code>&lt;!-- In &lt;head&gt; --&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+&lt;!-- Before &lt;/body&gt; --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Bootstrap class names">
+      <div class="eyebrow">03 / BOOTSTRAP FUNDAMENTALS</div>
+      <h2>Style with <em>classes</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>No custom CSS needed for the example</h3>
+          <p><code>btn</code> gives the base button style; <code>btn-primary</code> chooses the appearance.</p>
+          <div class="bs-demo"><button class="bs-btn primary">Save changes</button> <button
+              class="bs-btn outline">Cancel</button></div>
+        </div>
+        <pre><code>&lt;button class="btn btn-primary"&gt;Save changes&lt;/button&gt;
+&lt;button class="btn btn-outline-secondary"&gt;Cancel&lt;/button&gt;</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Buttons &amp; colors">
+      <div class="eyebrow">04 / BOOTSTRAP FUNDAMENTALS</div>
+      <h2>Buttons: <em>live examples</em></h2>
+      <p class="sub">Bootstrap provides semantic color variants and outline variants.</p>
+      <div class="bs-demo">
+        <div class="bs-demo-row"><button class="bs-btn primary">Primary</button><button
+            class="bs-btn success">Success</button><button class="bs-btn danger">Danger</button><button
+            class="bs-btn warning">Warning</button><button class="bs-btn outline">Outline</button></div>
+      </div>
+      <pre><code>&lt;button class="btn btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn-success"&gt;Success&lt;/button&gt;
+&lt;button class="btn btn-danger"&gt;Danger&lt;/button&gt;
+&lt;button class="btn btn-warning"&gt;Warning&lt;/button&gt;
+&lt;button class="btn btn-outline-secondary"&gt;Outline&lt;/button&gt;</code></pre>
+    </section>
+    <section class="slide" data-title="Spacing utilities">
+      <div class="eyebrow">05 / BOOTSTRAP FUNDAMENTALS</div>
+      <h2>Spacing without writing CSS</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Read the utility name</h3>
+          <p><strong>m</strong> = margin, <strong>p</strong> = padding; <strong>t</strong> = top, <strong>b</strong> =
+            bottom, <strong>x</strong> = left/right, <strong>y</strong> = top/bottom.</p>
+          <p>For example, <code>mt-3</code> means margin-top at spacing step 3.</p>
+          <div class="bs-demo">
+            <div class="bs-pad">p-3 (padding)</div>
+            <div class="bs-margin">mt-3 (margin-top)</div>
+          </div>
+        </div>
+        <pre><code>&lt;div class="p-3 bg-primary text-white"&gt;Box&lt;/div&gt;
+&lt;div class="mt-3 px-4 py-2 bg-light"&gt;Another box&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Cards &amp; alerts">
+      <div class="eyebrow">06 / BOOTSTRAP FUNDAMENTALS</div>
+      <h2>Ready-made <em>components</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Cards</h3>
+          <div class="bs-demo">
+            <div class="bs-card">
+              <div class="bs-card-title">Course card</div>
+              <p>Introduction to Bootstrap</p><button class="bs-btn primary">View course</button>
+            </div>
+            <div class="bs-alert">✓ Your changes were saved.</div>
+          </div>
+        </div>
+        <pre><code>&lt;div class="card"&gt;
+  &lt;div class="card-body"&gt;
+    &lt;h5 class="card-title"&gt;Course card&lt;/h5&gt;
+    &lt;p class="card-text"&gt;Introduction to Bootstrap&lt;/p&gt;
+    &lt;a class="btn btn-primary"&gt;View course&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="alert alert-success"&gt;Saved!&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Forms">
+      <div class="eyebrow">07 / BOOTSTRAP FUNDAMENTALS</div>
+      <h2>Bootstrap <em>forms</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Inputs, labels and spacing</h3>
+          <div class="bs-demo"><label class="bs-label">Email address</label><input class="bs-input"
+              placeholder="student@example.com" type="email" /><label class="bs-label">Course</label><select
+              class="bs-input">
+              <option>Full-Stack Development</option>
+              <option>Frontend Development</option>
+            </select><button class="bs-btn primary" style="margin-top:12px">Register</button></div>
+        </div>
+        <pre><code>&lt;form&gt;
+  &lt;label for="email" class="form-label"&gt;Email&lt;/label&gt;
+  &lt;input id="email" type="email" class="form-control"&gt;
+  &lt;button class="btn btn-primary mt-3"&gt;Register&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Containers">
+      <div class="eyebrow">08 / BOOTSTRAP FUNDAMENTALS</div>
+      <h2>Containers control <em>width</em></h2>
+      <p class="sub"><code>.container</code> has responsive maximum widths. <code>.container-fluid</code> stays
+        full-width.</p>
+      <div class="bs-demo">
+        <div class="bs-fluid">.container-fluid — full width<div class="bs-container">.container — centered, limited
+            width</div>
+        </div>
+      </div>
+      <pre><code>&lt;div class="container"&gt;Centered page content&lt;/div&gt;
+&lt;div class="container-fluid"&gt;Full-width content&lt;/div&gt;</code></pre>
+    </section>
+    <section class="slide" data-title="The 12-column system">
+      <div class="eyebrow">09 / BOOTSTRAP FUNDAMENTALS</div>
+      <h2>Bootstrap uses <em>12 columns</em></h2>
+      <p class="sub">A <code>.row</code> contains <code>.col-*</code> elements. Column sizes in each row typically add
+        up to 12.</p>
+      <div class="bs-demo">
+        <div class="bs-grid">
+          <div class="bs-col" style="flex:0 0 50%">6 / 12</div>
+          <div class="bs-col" style="flex:0 0 50%">6 / 12</div>
+        </div>
+        <div class="bs-grid">
+          <div class="bs-col" style="flex:0 0 33.333%">4 / 12</div>
+          <div class="bs-col" style="flex:0 0 33.333%">4 / 12</div>
+          <div class="bs-col" style="flex:0 0 33.333%">4 / 12</div>
+        </div>
+      </div>
+      <pre><code>&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-6"&gt;Half&lt;/div&gt;&lt;div class="col-6"&gt;Half&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+    <section class="slide" data-title="Bootstrap breakpoints">
+      <div class="eyebrow">10 / BOOTSTRAP FUNDAMENTALS</div>
+      <h2>Know the <em>breakpoints</em></h2>
+      <p class="sub">Bootstrap 5 uses <strong>min-width</strong> breakpoints. A class remains active at that width and
+        above until another rule overrides it.</p>
+      <div class="bp-table">
+        <div><strong>Prefix</strong><strong>Viewport width</strong><strong>Typical reference</strong></div>
+        <div><b>None (xs)</b><span>Below 576px</span><span>Small phones</span></div>
+        <div><b>sm</b><span>≥ 576px</span><span>Large phones</span></div>
+        <div><b>md</b><span>≥ 768px</span><span>Tablets</span></div>
+        <div><b>lg</b><span>≥ 992px</span><span>Laptops</span></div>
+        <div><b>xl</b><span>≥ 1200px</span><span>Desktops</span></div>
+        <div><b>xxl</b><span>≥ 1400px</span><span>Large screens</span></div>
+      </div>
+    </section>
+    <section class="slide" data-title="Responsive grid explained">
+      <div class="eyebrow">11 / BOOTSTRAP FUNDAMENTALS</div>
+      <h2>One class per <em>breakpoint</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Read this combination</h3>
+          <p><code>col-12</code>: full width by default.</p>
+          <p><code>col-md-6</code>: half width from 768px.</p>
+          <p><code>col-lg-4</code>: one-third width from 992px.</p>
+          <p>With three cards: <strong>1 → 2 → 3 columns</strong>.</p>
+        </div>
+        <pre><code>&lt;div class="row g-3"&gt;
+  &lt;div class="col-12 col-md-6 col-lg-4"&gt;Card 1&lt;/div&gt;
+  &lt;div class="col-12 col-md-6 col-lg-4"&gt;Card 2&lt;/div&gt;
+  &lt;div class="col-12 col-md-6 col-lg-4"&gt;Card 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Live breakpoint demonstration">
+      <div class="eyebrow">12 / BOOTSTRAP FUNDAMENTALS</div>
+      <h2>See breakpoints <em>change the layout</em></h2>
+      <p class="sub">Select a viewport width. The cards use the same rules as <code>col-12 col-md-6 col-lg-4</code>.</p>
+      <div class="bs-size-buttons"><button data-width="375" type="button">375px · Phone</button><button data-width="768"
+          type="button">768px · Tablet</button><button data-width="1024" type="button">1024px · Laptop</button><button
+          data-width="1440" type="button">1440px · Desktop</button></div>
+      <div class="bs-preview-wrap">
+        <div class="bs-preview" id="bsPreview">
+          <div class="bs-preview-head"><span id="bsWidthLabel">375px</span><span id="bsColumnsLabel">1 column</span>
+          </div>
+          <div class="bs-preview-grid">
+            <div>Card 1</div>
+            <div>Card 2</div>
+            <div>Card 3</div>
+          </div>
+        </div>
+      </div>
+      <p class="bs-note">Preview scales to fit the slide; breakpoint logic uses the selected simulated width.</p>
+    </section>
+    <section class="slide" data-title="Responsive utilities">
+      <div class="eyebrow">13 / BOOTSTRAP FUNDAMENTALS</div>
+      <h2>Display utilities <em>change by width</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Show or hide elements</h3>
+          <p><code>d-none</code> hides by default.</p>
+          <p><code>d-md-block</code> displays from 768px and up.</p>
+          <p><code>d-flex flex-column flex-md-row</code> stacks items on mobile and places them in a row on tablets and
+            wider.</p>
+        </div>
+        <pre><code>&lt;div class="d-none d-md-block"&gt;
+  Visible on md and larger
+&lt;/div&gt;
+
+&lt;div class="d-flex flex-column flex-md-row gap-3"&gt;
+  &lt;div&gt;First&lt;/div&gt;
+  &lt;div&gt;Second&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Navbar example">
+      <div class="eyebrow">14 / BOOTSTRAP FUNDAMENTALS</div>
+      <h2>Build a simple <em>navbar</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Brand, links and actions</h3>
+          <div class="bs-demo">
+            <div class="bs-navbar"><strong>Digital Hub</strong><span>Home</span><span>Courses</span><button
+                class="bs-btn primary">Join</button></div>
+          </div>
+        </div>
+        <pre><code>&lt;nav class="navbar navbar-expand-lg bg-body-tertiary"&gt;
+  &lt;div class="container"&gt;
+    &lt;a class="navbar-brand" href="#"&gt;Digital Hub&lt;/a&gt;
+    &lt;button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse" data-bs-target="#menu"&gt;Menu&lt;/button&gt;
+    &lt;div class="collapse navbar-collapse" id="menu"&gt;
+      &lt;div class="navbar-nav"&gt;
+        &lt;a class="nav-link" href="#"&gt;Home&lt;/a&gt;
+        &lt;a class="nav-link" href="#"&gt;Courses&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Quick reference">
+      <div class="eyebrow">15 / BOOTSTRAP FUNDAMENTALS</div>
+      <h2>Your <em>Bootstrap cheat sheet</em></h2>
+      <div class="cards">
+        <article>
+          <div class="card-icon">01</div>
+          <h3>Layout</h3>
+          <p><code>container</code>, <code>row</code>, <code>col-12</code>, <code>col-md-6</code>, <code>g-3</code></p>
+        </article>
+        <article>
+          <div class="card-icon">02</div>
+          <h3>Utilities</h3>
+          <p><code>p-3</code>, <code>mt-4</code>, <code>d-flex</code>, <code>gap-2</code>, <code>text-center</code></p>
+        </article>
+        <article>
+          <div class="card-icon">03</div>
+          <h3>Components</h3>
+          <p><code>btn</code>, <code>card</code>, <code>alert</code>, <code>form-control</code>, <code>navbar</code></p>
+        </article>
+      </div>
+      <p class="sub">Documentation: <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/"
+          rel="noopener" target="_blank">getbootstrap.com/docs/5.3</a></p>
+    </section>
+  </div>
+  <div class="bottom-ui">
+    <div class="controls"><button aria-label="Switch to light mode" id="themeToggle"
+        title="Switch theme">☼</button><button aria-label="Previous slide" id="prev">←</button><span id="counter">01 /
+        17</span><button aria-label="Next slide" id="next">→</button><button aria-label="Fullscreen"
+        id="full">⛶</button></div>
+    <div class="signature"><span class="signature-number" id="pageNumber">01</span><span class="logo-lockup"><img
+          alt="The Digital Hub logo" src="../../assets/images/logo-transparent.png" /><span class="logo-wordmark">THE
+          DIGITAL<br />HUB</span></span></div>
+  </div>
+  <div class="progress" id="progress"></div>
+  <script src="../../assets/js/script.js"></script>
+  <script>
+    (function () {
+      const preview = document.getElementById('bsPreview');
+      const buttons = [...document.querySelectorAll('[data-width]')];
+      function update(w) {
+        const wrap = preview.parentElement;
+        const scale = Math.min(1, (wrap.clientWidth - 8) / w);
+        preview.style.width = w + 'px';
+        preview.style.transform = 'translateX(-50%) scale(' + scale + ')';
+        const count = w >= 992 ? 3 : w >= 768 ? 2 : 1;
+        preview.querySelectorAll('.bs-preview-grid>div').forEach(el => el.style.width = (100 / count) + '%');
+        document.getElementById('bsWidthLabel').textContent = w + 'px';
+        document.getElementById('bsColumnsLabel').textContent = count + ' column' + (count > 1 ? 's' : '');
+        buttons.forEach(b => b.classList.toggle('selected', Number(b.dataset.width) === w));
+      }
+      buttons.forEach(b => b.addEventListener('click', () => update(Number(b.dataset.width))));
+      update(375);
+      window.addEventListener('resize', () => update(Number(document.querySelector('[data-width].selected')?.dataset.width || 375)));
+    })();
+  </script>
+</body>
+
+</html>
