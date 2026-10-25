@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../../assets/images/the_digital_hub_unrwa_logo-removebg-preview.png">
+  <title>DOM & Events | The Digital Hub</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+
+<body>
+  <div class="deck" id="deck">
+    <section class="slide active hero" data-title="DOM & Events">
+      <div class="eyebrow"><span class="dot"></span> THE DIGITAL HUB <span class="muted">/ JAVASCRIPT
+          FUNDAMENTALS</span></div>
+      <img class="hero-logo" src="../../assets/images/the-digital-hub-full-logo.png" alt="The Digital Hub">
+      <div class="hero-content">
+        <div class="kicker">FRONTEND DEVELOPMENT / JAVASCRIPT</div>
+        <h1>DOM &amp;<br><em>Events.</em></h1>
+        <p class="lead">Learn how JavaScript finds HTML elements, changes the page, reacts to users and handles forms.
+        </p>
+        <div class="chips"><span>DOM</span><span>EVENTS</span><span>FORMS</span><span>INTERACTIVITY</span></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="What is the DOM?">
+      <div class="eyebrow">01 / DOM FUNDAMENTALS</div>
+      <h2>What is the <em>DOM?</em></h2>
+      <p class="sub">DOM stands for Document Object Model. The browser turns your HTML into JavaScript-accessible
+        objects.</p>
+      <div class="architecture">
+        <div class="node"><small>HTML</small><strong>Your source code</strong><span>&lt;h1&gt;, &lt;p&gt;,
+            &lt;button&gt;...</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><small>BROWSER</small><strong>Parses the page</strong><span>Builds an internal
+            representation</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><small>DOM</small><strong>JavaScript can use it</strong><span>Read, change, create and remove
+            elements</span></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="DOM tree">
+      <div class="eyebrow">02 / DOM FUNDAMENTALS</div>
+      <h2>The DOM is a <em>tree.</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Elements become nodes</h3>
+          <ul>
+            <li><code>document</code> represents the current webpage</li>
+            <li>HTML elements have parent/child relationships</li>
+            <li>JavaScript can navigate and manipulate these nodes</li>
+          </ul>
+        </div>
+        <pre><code>&lt;body&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Hello&lt;/h1&gt;
+    &lt;button&gt;Click&lt;/button&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+
+document
+└─ body
+   └─ main
+      ├─ h1
+      └─ button</code></pre>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Select elements">
+      <div class="eyebrow">03 / SELECTING ELEMENTS</div>
+      <h2>First: <em>find the element.</em></h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">BY ID</div>
+          <pre><code>&lt;h1 id="title"&gt;Hello&lt;/h1&gt;
+
+const title =
+  document.getElementById("title");</code></pre>
+          <p>Useful when the element has a unique ID.</p>
+        </div>
+        <div>
+          <div class="compare-label">CSS SELECTOR</div>
+          <pre><code>const title =
+  document.querySelector("#title");
+
+const card =
+  document.querySelector(".card");</code></pre>
+          <p><code>querySelector()</code> returns the first matching element.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Select many elements">
+      <div class="eyebrow">04 / SELECTING ELEMENTS</div>
+      <h2>Select <em>multiple</em> elements</h2>
+      <div class="code-layout">
+        <div>
+          <h3><code>querySelectorAll()</code></h3>
+          <p>Returns a NodeList containing all matching elements.</p>
+          <ul>
+            <li>Use CSS selectors</li>
+            <li>Loop through the results with <code>forEach()</code></li>
+            <li>NodeList indexes start at 0</li>
+          </ul>
+        </div>
+        <pre><code>const buttons =
+  document.querySelectorAll(".btn");
+
+buttons.forEach(function (button) {
+  console.log(button.textContent);
+});</code></pre>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Change text">
+      <div class="eyebrow">05 / CHANGING CONTENT</div>
+      <h2>Change what the user <em>sees.</em></h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">TEXTCONTENT</div>
+          <pre><code>const message =
+  document.querySelector("#message");
+
+message.textContent =
+  "Welcome to JavaScript!";</code></pre>
+          <p>Best for plain text.</p>
+        </div>
+        <div>
+          <div class="compare-label">INNERHTML</div>
+          <pre><code>message.innerHTML =
+  "&lt;strong&gt;Welcome!&lt;/strong&gt;";</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Change styles">
+      <div class="eyebrow">06 / CHANGING APPEARANCE</div>
+      <h2>JavaScript can change <em>styles.</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Direct style changes</h3>
+          <p>The <code>style</code> property changes inline styles.</p>
+          <ul>
+            <li>Good for small dynamic values</li>
+            <li>CSS property names use camelCase in JavaScript</li>
+            <li>For reusable styling, prefer classes</li>
+          </ul>
+        </div>
+        <pre><code>const box = document.querySelector(".box");
+
+box.style.backgroundColor = "blue";
+box.style.color = "white";
+box.style.padding = "20px";</code></pre>
+      </div>
+    </section>
+
+    <section class="slide" data-title="classList">
+      <div class="eyebrow">07 / CHANGING APPEARANCE</div>
+      <h2>Prefer <code>classList</code> for real UI changes</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Let CSS handle the design</h3>
+          <ul>
+            <li><code>add()</code> adds a class</li>
+            <li><code>remove()</code> removes a class</li>
+            <li><code>toggle()</code> switches a class on/off</li>
+            <li><code>contains()</code> checks whether a class exists</li>
+          </ul>
+        </div>
+        <pre><code>.hidden {
+  display: none;
+}
+
+const panel = document.querySelector(".panel");
+
+panel.classList.add("hidden");
+panel.classList.remove("hidden");
+panel.classList.toggle("hidden");</code></pre>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Attributes">
+      <div class="eyebrow">08 / ATTRIBUTES</div>
+      <h2>Read and change HTML <em>attributes.</em></h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">READ</div>
+          <pre><code>const link =
+  document.querySelector("a");
+
+console.log(
+  link.getAttribute("href")
+);</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">CHANGE</div>
+          <pre><code>link.setAttribute(
+  "href",
+  "https://example.com"
+);
+
+link.setAttribute(
+  "target",
+  "_blank"
+);</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Create elements">
+      <div class="eyebrow">09 / CREATING ELEMENTS</div>
+      <h2>Create new HTML with <em>JavaScript.</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Create → configure → insert</h3>
+          <ul>
+            <li><code>createElement()</code> creates the element</li>
+            <li>Set its text, classes or attributes</li>
+            <li><code>append()</code> adds it to the page</li>
+          </ul>
+        </div>
+        <pre><code>const list = document.querySelector("#list");
+
+const item = document.createElement("li");
+item.textContent = "JavaScript";
+item.classList.add("skill");
+
+list.append(item);</code></pre>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Remove elements">
+      <div class="eyebrow">10 / CREATING ELEMENTS</div>
+      <h2>Elements can also be <em>removed.</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3><code>remove()</code></h3>
+          <p>Once you have selected an element, removing it is simple.</p>
+        </div>
+        <pre><code>const notification =
+  document.querySelector(".notification");
+
+notification.remove();</code></pre>
+      </div>
+    </section>
+
+    <section class="slide" data-title="What is an event?">
+      <div class="eyebrow">11 / EVENTS</div>
+      <h2>What is an <em>event?</em></h2>
+      <p class="sub">An event is something that happens in the browser that JavaScript can respond to.</p>
+      <div class="cards">
+        <article>
+          <div class="card-icon">CLICK</div>
+          <h3>Mouse</h3>
+          <p>click, dblclick, mouseenter and more.</p>
+        </article>
+        <article>
+          <div class="card-icon">KEY</div>
+          <h3>Keyboard</h3>
+          <p>keydown and keyup.</p>
+        </article>
+        <article>
+          <div class="card-icon">FORM</div>
+          <h3>Form &amp; input</h3>
+          <p>submit, input, change, focus and blur.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" data-title="addEventListener">
+      <div class="eyebrow">12 / EVENTS</div>
+      <h2>Listen for an event</h2>
+      <div class="architecture">
+        <div class="node"><small>1</small><strong>Select</strong><span>Find the element</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><small>2</small><strong>Listen</strong><span>Choose an event</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><small>3</small><strong>Respond</strong><span>Run a function</span></div>
+      </div>
+      <pre><code>const button = document.querySelector("#btn");
+
+button.addEventListener("click", function () {
+  console.log("Button clicked!");
+});</code></pre>
+    </section>
+
+    <section class="slide" data-title="Event callback">
+      <div class="eyebrow">13 / EVENTS</div>
+      <h2>The function runs <em>later.</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Event callback</h3>
+          <p>The browser waits. When the event happens, it calls your function.</p>
+          <ul>
+            <li>The function is not executed immediately</li>
+            <li>It is passed to <code>addEventListener()</code></li>
+            <li>One element can listen for different events</li>
+          </ul>
+        </div>
+        <pre><code>function showMessage() {
+  console.log("Clicked!");
+}
+
+button.addEventListener(
+  "click",
+  showMessage
+);</code></pre>
+      </div>
+    </section>
+
+   
+
+    <section class="slide" data-title="Input values">
+      <div class="eyebrow">15 / FORMS &amp; INPUTS</div>
+      <h2>Read what the user <em>typed.</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Use the <code>value</code> property</h3>
+          <p>Inputs keep their current value in JavaScript.</p>
+        </div>
+        <pre><code>&lt;input id="nameInput" type="text"&gt;
+
+const input =
+  document.querySelector("#nameInput");
+
+console.log(input.value);</code></pre>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Input event">
+      <div class="eyebrow">16 / FORMS &amp; INPUTS</div>
+      <h2>React while the user <em>types.</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>The <code>input</code> event</h3>
+          <p>Runs whenever the value changes through user input.</p>
+        </div>
+        <pre><code>const input = document.querySelector("#nameInput");
+const preview = document.querySelector("#preview");
+
+input.addEventListener("input", function () {
+  preview.textContent = input.value;
+});</code></pre>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Form submit">
+      <div class="eyebrow">17 / FORMS &amp; INPUTS</div>
+      <h2>Handle a form <em>submission.</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Listen on the form</h3>
+          <p>Forms submit by default, which usually reloads or navigates the page.</p>
+          <ul>
+            <li>Use the <code>submit</code> event</li>
+            <li>Use <code>preventDefault()</code> when handling it in JavaScript</li>
+          </ul>
+        </div>
+        <pre><code>const form = document.querySelector("#signupForm");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  console.log("Form handled with JavaScript");
+});</code></pre>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Simple validation">
+      <div class="eyebrow">18 / FORMS &amp; INPUTS</div>
+      <h2>Simple client-side <em>validation.</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Check before continuing</h3>
+          <p>Client-side checks improve the user experience, but the server must still validate important data.</p>
+        </div>
+        <pre><code>form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const name = input.value.trim();
+
+  if (name === "") {
+    message.textContent = "Name is required";
+    return;
+  }
+
+  message.textContent = `Welcome ${name}!`;
+});</code></pre>
+      </div>
+    </section>
+
+    
+
+    <section class="slide" data-title="Event delegation">
+      <div class="eyebrow">20 / EVENTS</div>
+      <h2>One listener can handle <em>many children.</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Event delegation</h3>
+          <p>Listen on a parent and inspect <code>event.target</code>.</p>
+          <ul>
+            <li>Useful for lists and dynamically added elements</li>
+            <li>Avoids adding a listener to every child</li>
+          </ul>
+        </div>
+        <pre><code>const list = document.querySelector("#list");
+
+list.addEventListener("click", function (event) {
+  if (event.target.matches("button")) {
+    console.log("A list button was clicked");
+  }
+});</code></pre>
+      </div>
+    </section>
+
+    <section class="slide" data-title="defer and loading">
+      <div class="eyebrow">21 / LOADING JAVASCRIPT</div>
+      <h2>Make sure HTML exists <em>before selecting it.</em></h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">RECOMMENDED</div>
+          <pre><code>&lt;script
+  src="script.js"
+  defer&gt;
+&lt;/script&gt;</code></pre>
+          <p><code>defer</code> lets HTML parsing continue and runs the script after the document is parsed.</p>
+        </div>
+        <div>
+          <div class="compare-label">ALTERNATIVE</div>
+          <pre><code>document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+    // DOM is ready
+  }
+);</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Mini project">
+      <div class="eyebrow">22 / PRACTICE</div>
+      <h2>Mini project · Interactive profile card</h2>
+      <div class="activity">
+        <div class="activity-icon">&lt;/&gt;</div>
+        <div>
+          <h3>Build a small DOM interaction</h3>
+          <p>Create a profile card with a name, description, input and button.</p>
+          <p>On button click: read the input, update the name, and toggle a highlight class on the card.</p>
+          <p><strong>Bonus:</strong> add a reset button that restores the original name.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Mini project solution">
+      <div class="eyebrow">23 / PRACTICE SOLUTION</div>
+      <h2>One possible solution</h2>
+      <pre><code>const card = document.querySelector(".profile-card");
+const nameText = document.querySelector("#name");
+const input = document.querySelector("#nameInput");
+const button = document.querySelector("#updateBtn");
+
+button.addEventListener("click", function () {
+  const newName = input.value.trim();
+
+  if (newName === "") return;
+
+  nameText.textContent = newName;
+  card.classList.toggle("highlight");
+  input.value = "";
+});</code></pre>
+    </section>
+
+    
+
+    <section class="slide closing" data-title="Next step">
+      <div class="eyebrow">25 / WRAP-UP</div>
+      <div class="centerpiece">
+        <div class="kicker">NEXT STEP</div>
+        <h1>Turn static pages into<br><em>interactive experiences.</em></h1>
+        <p class="lead">Practice selecting elements, changing the DOM, handling clicks and working with forms before
+          moving into larger JavaScript applications.</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="bottom-ui">
+    <div class="controls">
+      <button id="themeToggle" aria-label="Switch to light mode" title="Switch theme">&#9788;</button>
+      <button id="prev" aria-label="Previous slide">&larr;</button>
+      <span id="counter">01 / 26</span>
+      <button id="next" aria-label="Next slide">&rarr;</button>
+      <button id="full" aria-label="Fullscreen">&#x26F6;</button>
+    </div>
+    <div class="signature">
+      <span class="signature-number" id="pageNumber">01</span>
+      <span class="logo-lockup">
+        <img src="../../assets/images/logo-transparent.png" alt="The Digital Hub logo">
+        <span class="logo-wordmark">THE<br>DIGITAL<br>HUB</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="progress" id="progress"></div>
+  <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
