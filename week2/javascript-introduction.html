@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../../assets/images/the_digital_hub_unrwa_logo-removebg-preview.png">
+  <title>Introduction to JavaScript | The Digital Hub</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+
+<body>
+  <div class="deck" id="deck">
+
+    <section class="slide active hero" data-title="Introduction to JavaScript">
+      <div class="eyebrow"><span class="dot"></span> THE DIGITAL HUB <span class="muted">/ WEB FUNDAMENTALS</span></div>
+      <img class="hero-logo" src="../../assets/images/the-digital-hub-full-logo.png" alt="The Digital Hub">
+      <div class="hero-content">
+        <div class="kicker">FRONTEND DEVELOPMENT / JAVASCRIPT</div>
+        <h1>Make the web<br><em>come alive.</em></h1>
+        <p class="lead">A beginner-friendly introduction to JavaScript: how it fits into the web, variables, data types,
+          operators, conditions, loops, functions, objects and debugging.</p>
+        <div class="chips"><span>JAVASCRIPT
+            BASICS</span>  </div>
+      </div>
+    </section>
+    <section class="slide" data-title="Why JavaScript">
+      <div class="eyebrow">01 / WHY JAVASCRIPT?</div>
+      <h2>Why does JavaScript <em>exist?</em></h2>
+      <p class="sub">HTML could structure a page and CSS could style it, but early webpages needed behavior: reacting to
+        users, changing content and making pages interactive.</p>
+      <div class="cards">
+        <article>
+          <div class="card-icon">1995</div>
+          <h3>Born for the web</h3>
+          <p>JavaScript appeared in Netscape Navigator in 1995 and quickly became the language of browser interaction.
+          </p>
+        </article>
+        <article>
+          <div class="card-icon">98.9%</div>
+          <h3>Almost everywhere</h3>
+          <p>W3Techs reports JavaScript on 98.9% of websites as a client-side language.</p>
+        </article>
+        <article>
+          <div class="card-icon">62%</div>
+          <h3>Still heavily used</h3>
+          <p>62% of respondents reported JavaScript use in Stack Overflow's 2026 survey; it was 66% in 2025.</p>
+        </article>
+      </div>
+      <div class="note">SOURCES <span>W3Techs · 24 Oct 2026 &nbsp; | &nbsp; Stack Overflow Developer Survey
+          2025–2026</span></div>
+    </section>
+    <section class="slide" data-title="JavaScript history">
+      <div class="eyebrow">02 / WHY JAVASCRIPT?</div>
+      <h2>From small scripts to <em>full applications.</em></h2>
+      <div class="architecture">
+        <div class="node"><small>1995</small><strong>Browser JavaScript</strong><span>Interactivity inside Netscape
+            Navigator</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><small>2009</small><strong>Node.js</strong><span>JavaScript becomes practical outside the
+            browser</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><small>TODAY</small><strong>Full ecosystem</strong><span>Frontend, backend, mobile, desktop
+            and tooling</span></div>
+      </div>
+      <div class="note">HISTORICAL NOTE <span>JavaScript was conceived with server-side ambitions, but its first major
+          success was client-side in the browser.</span></div>
+    </section>
+    <section class="slide" data-title="HTML CSS JavaScript">
+      <div class="eyebrow">03 / FROM HTML &amp; CSS TO JAVASCRIPT</div>
+      <h2>Three technologies.<br><em>Three different jobs.</em></h2>
+      <div class="cards">
+        <article>
+          <div class="card-icon">HTML</div>
+          <h3>Structure</h3>
+          <p>Creates the button, heading, form, image and other page content.</p>
+        </article>
+        <article>
+          <div class="card-icon">CSS</div>
+          <h3>Appearance</h3>
+          <p>Controls layout, spacing, typography, colors and responsive design.</p>
+        </article>
+        <article>
+          <div class="card-icon">JS</div>
+          <h3>Behavior</h3>
+          <p>Responds to clicks, calculates values, makes decisions and changes the page.</p>
+        </article>
+      </div>
+    </section>
+    <section class="slide" data-title="Why HTML and CSS first">
+      <div class="eyebrow">04 / FROM HTML &amp; CSS TO JAVASCRIPT</div>
+      <h2>Why learn HTML &amp; CSS <em>first?</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>JavaScript needs something to work with</h3>
+          <p>Before manipulating a webpage, you need to understand how that webpage is structured.</p>
+          <ul>
+            <li>HTML gives elements meaning and structure</li>
+            <li>CSS controls how those elements look</li>
+            <li>JavaScript can then find those elements and react to users</li>
+          </ul>
+        </div>
+        <pre><code>&lt;button id="buyBtn"&gt;Buy Now&lt;/button&gt;
+
+// Later in JavaScript...
+const button = document.querySelector("#buyBtn");
+
+button.addEventListener("click", function () {
+  console.log("Button clicked!");
+});</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Click example">
+      <div class="eyebrow">05 / FROM HTML &amp; CSS TO JAVASCRIPT</div>
+      <h2>What happens when a user <em>clicks?</em></h2>
+      <div class="architecture">
+        <div class="node"><small>HTML</small><strong>Button exists</strong><span>&lt;button id="btn"&gt;</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><small>EVENT</small><strong>User clicks</strong><span>The browser detects the action</span>
+        </div>
+        <div class="arrow">→</div>
+        <div class="node"><small>JAVASCRIPT</small><strong>Code responds</strong><span>Show, hide, calculate or update
+            content</span></div>
+      </div>
+    </section>
+    <section class="slide" data-title="Client vs server side">
+      <div class="eyebrow">06 / WHERE JAVASCRIPT RUNS</div>
+      <h2>Client-side vs server-side</h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">CLIENT-SIDE</div>
+          <h3>Runs in the user's browser</h3>
+          <ul>
+            <li>Requires a browser environment</li>
+            <li>The downloaded code executes on the user's device</li>
+            <li>Examples: button clicks, menus, form feedback, page updates</li>
+          </ul>
+        </div>
+        <div>
+          <div class="compare-label">SERVER-SIDE</div>
+          <h3>Runs on a server</h3>
+          <ul>
+            <li>The server processes the code and sends back a result</li>
+            <li>The user does not see the internal server process</li>
+            <li>Examples: database queries, authentication, payments, APIs</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="JavaScript client and server">
+      <div class="eyebrow">07 / WHERE JAVASCRIPT RUNS</div>
+      <h2>JavaScript started <em>browser-first.</em></h2>
+      <p class="sub">Its early mainstream role was client-side scripting in browsers. Today JavaScript also runs on
+        servers and many other environments.</p>
+      <div class="cards">
+        <article>
+          <div class="card-icon">BROWSER</div>
+          <h3>Client-side JS</h3>
+          <p>Chrome, Firefox, Safari and Edge execute JavaScript for webpages.</p>
+        </article>
+        <article>
+          <div class="card-icon">NODE</div>
+          <h3>Server-side JS</h3>
+          <p>Node.js runs JavaScript outside the browser and is widely used for APIs and backend services.</p>
+        </article>
+        <article>
+          <div class="card-icon">MORE</div>
+          <h3>Beyond websites</h3>
+          <p>JavaScript is also used for mobile apps, desktop apps, tooling and automation.</p>
+        </article>
+      </div>
+    </section>
+    <section class="slide dense" data-title="Modern JavaScript ecosystem">
+      <div class="eyebrow">08 / MODERN JAVASCRIPT</div>
+      <h2>Popular libraries &amp; frameworks</h2>
+      <p class="sub">You do not need these today. First learn JavaScript itself; frameworks become much easier
+        afterward.</p>
+      <div class="agenda">
+        <div><b>R</b><strong>React</strong><span>UI library · created at Facebook/Meta · now under the React
+            Foundation</span></div>
+        <div><b>A</b><strong>Angular</strong><span>Full web framework · maintained by Google</span></div>
+        <div><b>V</b><strong>Vue</strong><span>Progressive framework · created by Evan You · community-driven</span>
+        </div>
+        <div><b>N</b><strong>Next.js</strong><span>React framework · created and maintained by Vercel</span></div>
+        <div><b>S</b><strong>Svelte</strong><span>UI framework/compiler · community maintained · backed by Vercel</span>
+        </div>
+        <div><b>N</b><strong>Node.js</strong><span>JavaScript runtime · lets JavaScript run outside the browser</span>
+        </div>
+      </div>
+    </section>
+    <section class="slide dense" data-title="Who uses modern JavaScript frameworks">
+      <div class="eyebrow">09 / MODERN JAVASCRIPT</div>
+      <h2>Who builds them—and who uses them?</h2>
+      <div class="takeaways">
+        <div><b>01</b><strong>React</strong>&nbsp;— born at Facebook/Meta; Meta uses React across major products
+          including Facebook and Threads.</div>
+        <div><b>02</b><strong>Angular</strong>&nbsp;— maintained by a dedicated team at Google.</div>
+        <div><b>03</b><strong>Vue</strong>&nbsp;— independent project; official Vue sources list Apple, Google,
+          Microsoft, GitLab and Zoom among production users.</div>
+        <div><b>04</b><strong>Next.js</strong>&nbsp;— created by Vercel; its showcase includes Nike, OpenAI, Netflix
+          Jobs, Spotify and others.</div>
+        <div><b>05</b><strong>Svelte</strong>&nbsp;— backed by Vercel; its site highlights The New York Times, Decathlon
+          and 1Password.</div>
+      </div>
+    </section>
+    <section class="slide" data-title="Connect JavaScript">
+      <div class="eyebrow">10 / FROM HTML &amp; CSS TO JAVASCRIPT</div>
+      <h2>Connect JavaScript to HTML</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Start with something familiar</h3>
+          <p>Create an HTML page and connect a separate JavaScript file.</p>
+          <ul>
+            <li>Create <strong>index.html</strong></li>
+            <li>Create <strong>script.js</strong> in the same folder</li>
+            <li>Use <strong>defer</strong> so JavaScript runs after HTML is parsed</li>
+          </ul>
+        </div>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;JavaScript Introduction&lt;/title&gt;
+  &lt;script src="script.js" defer&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Welcome to JavaScript&lt;/h1&gt;
+  &lt;p id="message"&gt;Hello students!&lt;/p&gt;
+  &lt;button id="btn"&gt;Click Me&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="First JavaScript interaction">
+      <div class="eyebrow">11 / FROM HTML &amp; CSS TO JAVASCRIPT</div>
+      <h2>Our first interaction</h2>
+      <div class="code-layout">
+        <div>
+          <h3>What changed?</h3>
+          <p>HTML created the button and paragraph. JavaScript reacts when the button is clicked.</p>
+          <ul>
+
+            <li>Focus on what JavaScript adds</li>
+            <li>Open DevTools → Console</li>
+          </ul>
+        </div>
+        <pre><code>console.log("JavaScript is connected!");
+
+const button = document.querySelector("#btn");
+const message = document.querySelector("#message");
+
+button.addEventListener("click", function () {
+  message.textContent = "JavaScript is working!";
+});</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="The console">
+      <div class="eyebrow">12 / FROM HTML &amp; CSS TO JAVASCRIPT</div>
+      <h2>Your first JavaScript tool:<br /><em>the console.</em></h2>
+      <div class="cards">
+        <article>
+          <div class="card-icon">01</div>
+          <h3>Run</h3>
+          <p>Test small pieces of JavaScript directly in DevTools.</p>
+        </article>
+        <article>
+          <div class="card-icon">02</div>
+          <h3>Inspect</h3>
+          <p>Use <code>console.log()</code> to see values while your code runs.</p>
+        </article>
+        <article>
+          <div class="card-icon">03</div>
+          <h3>Debug</h3>
+          <p>Error messages tell you where JavaScript stopped and often why.</p>
+        </article>
+      </div>
+    </section>
+    <section class="slide" data-title="Comments and naming">
+      <div class="eyebrow">13 / JAVASCRIPT BASICS</div>
+      <h2>Write code humans can <em>read.</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Two simple habits</h3>
+          <ul>
+            <li>Use clear <strong>camelCase</strong> variable names</li>
+            <li>Use comments to explain <strong>why</strong>, not every obvious line</li>
+            <li>JavaScript is case-sensitive: <code>age</code> and <code>Age</code> differ</li>
+          </ul>
+        </div>
+        <pre><code>// Single-line comment
+const studentName = "Sara";
+
+/* Multi-line comment
+   for a longer explanation */
+const courseDuration = 4;
+
+// Avoid unclear names like: x, a1, thing</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Variables">
+      <div class="eyebrow">14 / VARIABLES &amp; DATA TYPES</div>
+      <h2>Variables store <em>values.</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Think of a named box</h3>
+          <p>A variable gives a value a name so we can reuse it later.</p>
+          <ul>
+            <li><strong>let</strong> → value can change</li>
+            <li><strong>const</strong> → variable cannot be reassigned</li>
+            <li>Use clear, meaningful names</li>
+          </ul>
+        </div>
+        <pre><code>let studentName = "Sara";
+const age = 20;
+let isStudent = true;
+
+console.log(studentName);
+console.log(age);
+console.log(isStudent);</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="let vs const">
+      <div class="eyebrow">15 / VARIABLES &amp; DATA TYPES</div>
+      <h2><code>let</code> vs <code>const</code></h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">LET — CAN CHANGE</div>
+          <pre><code>let score = 10;
+console.log(score);
+
+score = 20;
+console.log(score); // 20</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">CONST — CANNOT BE REASSIGNED</div>
+          <pre><code>const country = "Lebanon";
+console.log(country);
+
+// country = "Jordan";
+// Error</code></pre>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="Primitive data types">
+      <div class="eyebrow">16 / VARIABLES &amp; DATA TYPES</div>
+      <h2>Common primitive data types</h2>
+      <div class="cards">
+        <article>
+          <div class="card-icon">"ABC"</div>
+          <h3>String</h3>
+          <p>Text inside quotes.</p><span class="tag">"Sara"</span>
+        </article>
+        <article>
+          <div class="card-icon">123</div>
+          <h3>Number</h3>
+          <p>Whole and decimal numbers.</p><span class="tag">20 · 3.5</span>
+        </article>
+        <article>
+          <div class="card-icon">T/F</div>
+          <h3>Boolean</h3>
+          <p>Logical values: true or false.</p><span class="tag">true · false</span>
+        </article>
+      </div>
+      <div class="note">ALSO COMMON <span>undefined = no value assigned yet &nbsp; · &nbsp; null = intentionally
+          empty</span></div>
+    </section>
+    <section class="slide" data-title="typeof">
+      <div class="eyebrow">17 / VARIABLES &amp; DATA TYPES</div>
+      <h2>Ask JavaScript for the type</h2>
+      <div class="code-layout">
+        <div>
+          <h3>The <code>typeof</code> operator</h3>
+          <p>Useful when learning and debugging values.</p>
+          <ul>
+            <li>Strings return <strong>"string"</strong></li>
+            <li>Numbers return <strong>"number"</strong></li>
+            <li>Booleans return <strong>"boolean"</strong></li>
+          </ul>
+        </div>
+        <pre><code>const name = "Ali";
+const age = 22;
+const active = true;
+
+console.log(typeof name);   // string
+console.log(typeof age);    // number
+console.log(typeof active); // boolean</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Operators">
+      <div class="eyebrow">18 / VARIABLES &amp; DATA TYPES</div>
+      <h2>JavaScript can calculate</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Arithmetic operators</h3>
+          <ul>
+            <li><strong>+</strong> addition</li>
+            <li><strong>-</strong> subtraction</li>
+            <li><strong>*</strong> multiplication</li>
+            <li><strong>/</strong> division</li>
+            <li><strong>%</strong> remainder</li>
+          </ul>
+        </div>
+        <pre><code>let price = 50;
+let quantity = 3;
+
+let total = price * quantity;
+
+console.log(total); // 150
+console.log(10 % 3); // 1</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Type conversion">
+      <div class="eyebrow">19 / VARIABLES &amp; DATA TYPES</div>
+      <h2>Sometimes values change <em>type.</em></h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">STRING + NUMBER</div>
+          <pre><code>console.log("5" + 2); // "52"
+
+const ageText = "20";
+console.log(typeof ageText); // string</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">EXPLICIT CONVERSION</div>
+          <pre><code>const age = Number("20");
+console.log(age);        // 20
+console.log(typeof age); // number
+
+console.log(String(100)); // "100"</code></pre>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="Template literals">
+      <div class="eyebrow">20 / VARIABLES &amp; DATA TYPES</div>
+      <h2>Combine text and values</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Template literals</h3>
+          <p>Use backticks and <code>${...}</code> to place values inside text.</p>
+          <ul>
+            <li>Cleaner than joining many strings with +</li>
+            <li>Great for messages and output</li>
+          </ul>
+        </div>
+        <pre><code>const name = "Sara";
+const total = 150;
+
+console.log(`Hello ${name}!`);
+console.log(`Total: $${total}`);</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Conditions">
+      <div class="eyebrow">21 / CONDITIONS &amp; LOGIC</div>
+      <h2>Programs need to make <em>decisions.</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>if → else if → else</h3>
+          <p>JavaScript checks conditions from top to bottom.</p>
+          <ul>
+            <li>If a condition is true, its block runs</li>
+            <li>If not, JavaScript checks the next condition</li>
+            <li><code>else</code> is the fallback</li>
+          </ul>
+        </div>
+        <pre><code>const grade = 75;
+
+if (grade &gt;= 90) {
+  console.log("Excellent");
+} else if (grade &gt;= 70) {
+  console.log("Good");
+} else if (grade &gt;= 50) {
+  console.log("Passed");
+} else {
+  console.log("Failed");
+}</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Comparison operators">
+      <div class="eyebrow">22 / CONDITIONS &amp; LOGIC</div>
+      <h2>Compare values carefully</h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">LOOSE EQUALITY — ==</div>
+          <h3>May convert types first</h3>
+          <pre><code>5 == "5"   // true
+0 == false // true</code></pre>
+          <p>JavaScript may perform type coercion before comparing.</p>
+        </div>
+        <div>
+          <div class="compare-label">STRICT EQUALITY — ===</div>
+          <h3>Value + type must match</h3>
+          <pre><code>5 === "5"   // false
+5 === 5     // true
+false === 0 // false</code></pre>
+          <p><strong>Recommended:</strong> use <code>===</code> and <code>!==</code> most of the time.</p>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="Other comparison operators">
+      <div class="eyebrow">23 / CONDITIONS &amp; LOGIC</div>
+      <h2>Other comparison operators</h2>
+      <div class="cards">
+        <article>
+          <div class="card-icon">&gt;</div>
+          <h3>Greater than</h3>
+          <p><code>10 &gt; 5</code> → true</p>
+        </article>
+        <article>
+          <div class="card-icon">&lt;</div>
+          <h3>Less than</h3>
+          <p><code>3 &lt; 8</code> → true</p>
+        </article>
+        <article>
+          <div class="card-icon">&gt;=</div>
+          <h3>Inclusive comparisons</h3>
+          <p><code>age &gt;= 18</code> checks 18 and above.</p>
+        </article>
+      </div>
+      <div class="note">ALSO <span>&lt;= &nbsp; · &nbsp; != &nbsp; · &nbsp; !==</span></div>
+    </section>
+    <section class="slide" data-title="Logical operators">
+      <div class="eyebrow">24 / CONDITIONS &amp; LOGIC</div>
+      <h2>Combine conditions</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Three useful operators</h3>
+          <ul>
+            <li><strong>&amp;&amp;</strong> → AND: both must be true</li>
+            <li><strong>||</strong> → OR: at least one must be true</li>
+            <li><strong>!</strong> → NOT: reverses true/false</li>
+          </ul>
+        </div>
+        <pre><code>const age = 20;
+const hasTicket = true;
+
+if (age &gt;= 18 &amp;&amp; hasTicket) {
+  console.log("Entry allowed");
+}</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="switch statement">
+      <div class="eyebrow">25 / CONDITIONS &amp; LOGIC</div>
+      <h2>Another way to choose:<br><code>switch</code></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Useful for exact choices</h3>
+          <p>Use <code>switch</code> when one value can match several specific cases.</p>
+          <ul>
+            <li><code>case</code> defines a possible match</li>
+            <li><code>break</code> stops the switch after a match</li>
+            <li><code>default</code> is the fallback</li>
+          </ul>
+        </div>
+        <pre><code>const day = "Monday";
+
+switch (day) {
+  case "Monday":
+    console.log("Start of the week");
+    break;
+  case "Friday":
+    console.log("Almost weekend");
+    break;
+  default:
+    console.log("Regular day");
+}</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Loops">
+      <div class="eyebrow">26 / LOOPS &amp; REPETITION</div>
+      <h2>Loops repeat code <em>for us.</em></h2>
+      <p class="sub">Instead of writing the same instruction many times, describe how repetition should work.</p>
+      <div class="compare">
+        <div>
+          <div class="compare-label">WITHOUT A LOOP</div>
+          <pre><code>console.log(1);
+console.log(2);
+console.log(3);
+console.log(4);
+console.log(5);</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">WITH A LOOP</div>
+          <pre><code>for (let i = 1; i &lt;= 5; i++) {
+  console.log(i);
+}</code></pre>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="for loop anatomy">
+      <div class="eyebrow">27 / LOOPS &amp; REPETITION</div>
+      <h2>Anatomy of a <code>for</code> loop</h2>
+      <div class="architecture">
+        <div class="node"><small>STEP 1</small><strong>let i = 1</strong><span>Start value</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><small>STEP 2</small><strong>i &lt;= 5</strong><span>Keep going while true</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><small>STEP 3</small><strong>i++</strong><span>Increase after each round</span></div>
+      </div>
+      <div class="note">FULL LOOP <span>for (let i = 1; i &lt;= 5; i++) { console.log(i); }</span></div>
+    </section>
+    <section class="slide" data-title="Accumulator">
+      <div class="eyebrow">28 / LOOPS &amp; REPETITION</div>
+      <h2>Keep a running total</h2>
+      <div class="code-layout">
+        <div>
+          <h3>The accumulator pattern</h3>
+          <p>Create a variable before the loop, then update it during each repetition.</p>
+          <ul>
+            <li>Start total at 0</li>
+            <li>Add the current value each time</li>
+            <li>Print the final result after the loop</li>
+          </ul>
+        </div>
+        <pre><code>let total = 0;
+
+for (let i = 1; i &lt;= 10; i++) {
+  total += i;
+}
+
+console.log(total); // 55</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="while loop">
+      <div class="eyebrow">29 / LOOPS &amp; REPETITION</div>
+      <h2>A quick look at <code>while</code></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Repeat while a condition is true</h3>
+          <p>Always make sure something changes inside the loop so it can eventually stop.</p>
+          <ul>
+            <li>Initialize before the loop</li>
+            <li>Check the condition</li>
+            <li>Update inside the loop</li>
+          </ul>
+        </div>
+        <pre><code>let i = 1;
+
+while (i &lt;= 5) {
+  console.log(i);
+  i++;
+}</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Functions">
+      <div class="eyebrow">30 / FUNCTIONS</div>
+      <h2>Functions package reusable <em>logic.</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Define once, call many times</h3>
+          <p>A function gives a block of logic a name.</p>
+          <ul>
+            <li><strong>Parameters</strong> are inputs the function can receive</li>
+            <li><strong>Arguments</strong> are the actual values passed in</li>
+            <li><strong>return</strong> sends a result back</li>
+          </ul>
+        </div>
+        <pre><code>function calculateTotal(price, quantity) {
+  return price * quantity;
+}
+
+const total = calculateTotal(10, 3);
+console.log(total); // 30</code></pre>
+      </div>
+    </section>
+    <section class="slide dense" data-title="Function types">
+      <div class="eyebrow">31 / FUNCTIONS</div>
+      <h2>Four beginner function shapes</h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">NO PARAMETERS / NO RETURN</div>
+          <pre><code>function sayHello() {
+  console.log("Hello!");
+}
+
+sayHello();</code></pre>
+          <div class="compare-label">PARAMETERS / NO RETURN</div>
+          <pre><code>function greet(name) {
+  console.log(`Hello ${name}`);
+}
+
+greet("Sara");</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">NO PARAMETERS / WITH RETURN</div>
+          <pre><code>function getCourse() {
+  return "JavaScript";
+}
+
+const course = getCourse();</code></pre>
+          <div class="compare-label">PARAMETERS / WITH RETURN</div>
+          <pre><code>function add(a, b) {
+  return a + b;
+}
+
+const result = add(2, 3);</code></pre>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="Parameters arguments return">
+      <div class="eyebrow">32 / FUNCTIONS</div>
+      <h2>Follow the value</h2>
+      <div class="architecture">
+        <div class="node"><small>CALL</small><strong>calculateTotal(10, 3)</strong><span>10 and 3 are arguments</span>
+        </div>
+        <div class="arrow">→</div>
+        <div class="node"><small>FUNCTION</small><strong>price · quantity</strong><span>Parameters receive the
+            arguments</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><small>RETURN</small><strong>30</strong><span>The result goes back to the caller</span></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Objects">
+      <div class="eyebrow">34 / OBJECTS</div>
+      <h2>Objects group related <em>data.</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Key → value thinking</h3>
+          <p>An object lets us keep related information together under one variable.</p>
+          <ul>
+            <li>Properties have names called <strong>keys</strong></li>
+            <li>Each key stores a <strong>value</strong></li>
+            <li>Use dot notation to read a property</li>
+          </ul>
+        </div>
+        <pre><code>const student = {
+  name: "Sara",
+  age: 20,
+  course: "Full-Stack",
+  active: true
+};
+
+console.log(student.name); // Sara
+console.log(student.age);  // 20</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="Working with objects">
+      <div class="eyebrow">35 / OBJECTS</div>
+      <h2>Read and update object properties</h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">READ VALUES</div>
+          <pre><code>const user = {
+  name: "Ali",
+  role: "student"
+};
+
+console.log(user.name);
+console.log(user["role"]);</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">UPDATE / ADD VALUES</div>
+          <pre><code>user.role = "graduate";
+user.country = "Lebanon";
+
+console.log(user);</code></pre>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="Arrays preview">
+      <div class="eyebrow">36 / COLLECTIONS</div>
+      <h2>Quick preview: arrays</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Store a list of values</h3>
+          <p>Objects describe one thing with named properties. Arrays store an ordered list of values.</p>
+          <ul>
+            <li>Indexes start at <strong>0</strong></li>
+            <li>Use <code>.length</code> to get the number of items</li>
+          </ul>
+        </div>
+        <pre><code>const skills = ["HTML", "CSS", "JavaScript"];
+
+console.log(skills[0]); // HTML
+console.log(skills[2]); // JavaScript
+console.log(skills.length); // 3</code></pre>
+      </div>
+    </section>
+    <section class="slide" data-title="How to run practice code">
+      <div class="eyebrow">37 / PRACTICE</div>
+      <h2>Two easy ways to practice</h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">OPTION A — BROWSER CONSOLE</div>
+          <h3>Fast experiments</h3>
+          <ul>
+            <li>Open your HTML page</li>
+            <li>Press F12</li>
+            <li>Open Console</li>
+            <li>Paste JavaScript and press Enter</li>
+          </ul>
+        </div>
+        <div>
+          <div class="compare-label">OPTION B — VS CODE + NODE.JS</div>
+          <h3>Practice file</h3>
+          <pre><code>// practice.js
+console.log("Hello JavaScript!");
+
+// Terminal:
+node practice.js</code></pre>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="Exercise 1">
+      <div class="eyebrow">38 / BEGINNER EXERCISE 01</div>
+      <h2>Personal introduction</h2>
+      <div class="activity">
+        <div class="activity-icon">01</div>
+        <div>
+          <h3>Variables + template literals</h3>
+          <p>Create variables for your <strong>name</strong>, <strong>age</strong> and <strong>course</strong>. Print
+            one sentence using a template literal.</p>
+          <p><strong>Example output:</strong> My name is Sara, I am 20 years old and I study Full-Stack Web Development.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="Exercise 1 solution">
+      <div class="eyebrow">39 / BEGINNER SOLUTION 01</div>
+      <h2>Solution · Personal introduction</h2>
+      <pre><code>const name = "Sara";
+const age = 20;
+const course = "Full-Stack Web Development";
+
+console.log(
+  `My name is ${name}, I am ${age} years old and I study ${course}.`
+);</code></pre>
+    </section>
+    <section class="slide" data-title="Exercise 2">
+      <div class="eyebrow">40 / BEGINNER EXERCISE 02</div>
+      <h2>Shopping total</h2>
+      <div class="activity">
+        <div class="activity-icon">02</div>
+        <div>
+          <h3>Operators</h3>
+          <p>A customer buys <strong>3 notebooks for $4 each</strong> and <strong>2 pens for $1.50 each</strong>.
+            Calculate the total cost and print it.</p>
+          <p><strong>Expected output:</strong> Total: $15</p>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="Exercise 2 solution">
+      <div class="eyebrow">41 / BEGINNER SOLUTION 02</div>
+      <h2>Solution · Shopping total</h2>
+      <pre><code>const notebooks = 3 * 4;
+const pens = 2 * 1.5;
+const total = notebooks + pens;
+
+console.log(`Total: $${total}`); // $15</code></pre>
+    </section>
+    <section class="slide" data-title="Exercise 3">
+      <div class="eyebrow">42 / BEGINNER EXERCISE 03</div>
+      <h2>Pass or fail</h2>
+      <div class="activity">
+        <div class="activity-icon">03</div>
+        <div>
+          <h3>Conditions</h3>
+          <p>A student has a grade of <strong>65</strong>. The passing grade is <strong>50</strong>. Print
+            <strong>"Passed"</strong> if the grade is at least 50. Otherwise print <strong>"Failed"</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="Exercise 3 solution">
+      <div class="eyebrow">43 / BEGINNER SOLUTION 03</div>
+      <h2>Solution · Pass or fail</h2>
+      <pre><code>const grade = 65;
+
+if (grade &gt;= 50) {
+  console.log("Passed");
+} else {
+  console.log("Failed");
+}</code></pre>
+    </section>
+    <section class="slide" data-title="Exercise 4">
+      <div class="eyebrow">44 / INTERMEDIATE EXERCISE 04</div>
+      <h2>Even or odd?</h2>
+      <div class="activity">
+        <div class="activity-icon">04</div>
+        <div>
+          <h3>Condition + remainder</h3>
+          <p>Create a variable called <strong>number</strong>. If the number is divisible by 2, print
+            <strong>"Even"</strong>. Otherwise print <strong>"Odd"</strong>.
+          </p>
+          <p><strong>Hint:</strong> Use the <code>%</code> remainder operator.</p>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="Exercise 4 solution">
+      <div class="eyebrow">45 / INTERMEDIATE SOLUTION 04</div>
+      <h2>Solution · Even or odd?</h2>
+      <pre><code>const number = 7;
+
+if (number % 2 === 0) {
+  console.log("Even");
+} else {
+  console.log("Odd");
+}</code></pre>
+    </section>
+    <section class="slide" data-title="Exercise 5">
+      <div class="eyebrow">46 / INTERMEDIATE EXERCISE 05</div>
+      <h2>Sum from 1 to 20</h2>
+      <div class="activity">
+        <div class="activity-icon">05</div>
+        <div>
+          <h3>Loop + accumulator</h3>
+          <p>Use a <code>for</code> loop to add all numbers from <strong>1 to 20</strong>. Print the final total.</p>
+          <p><strong>Expected output:</strong> 210</p>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="Exercise 5 solution">
+      <div class="eyebrow">47 / INTERMEDIATE SOLUTION 05</div>
+      <h2>Solution · Sum from 1 to 20</h2>
+      <pre><code>let total = 0;
+
+for (let i = 1; i &lt;= 20; i++) {
+  total += i;
+}
+
+console.log(total); // 210</code></pre>
+    </section>
+    <section class="slide" data-title="Exercise 6">
+      <div class="eyebrow">48 / INTERMEDIATE EXERCISE 06</div>
+      <h2>Discount calculator</h2>
+      <div class="activity">
+        <div class="activity-icon">06</div>
+        <div>
+          <h3>Function + condition</h3>
+          <p>Create a function <code>calculatePrice(price)</code>. If the price is <strong>$100 or more</strong>, apply
+            a <strong>10% discount</strong>. Otherwise return the original price.</p>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="Exercise 6 solution">
+      <div class="eyebrow">49 / INTERMEDIATE SOLUTION 06</div>
+      <h2>Solution · Discount calculator</h2>
+      <pre><code>function calculatePrice(price) {
+  if (price &gt;= 100) {
+    return price * 0.9;
+  }
+
+  return price;
+}
+
+console.log(calculatePrice(150)); // 135
+console.log(calculatePrice(80));  // 80</code></pre>
+    </section>
+    <section class="slide" data-title="Exercise 7">
+      <div class="eyebrow">50 / CHALLENGING EXERCISE 07</div>
+      <h2>Entry checker</h2>
+      <div class="activity">
+        <div class="activity-icon">07</div>
+        <div>
+          <h3>Multiple conditions</h3>
+          <p>A visitor may enter if they are <strong>18 or older AND have a ticket</strong>, OR if they have a
+            <strong>VIP pass</strong>. Create variables and print <strong>"Entry allowed"</strong> or <strong>"Entry
+              denied"</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="Exercise 7 solution">
+      <div class="eyebrow">51 / CHALLENGING SOLUTION 07</div>
+      <h2>Solution · Entry checker</h2>
+      <pre><code>const age = 17;
+const hasTicket = false;
+const hasVipPass = true;
+
+if ((age &gt;= 18 &amp;&amp; hasTicket) || hasVipPass) {
+  console.log("Entry allowed");
+} else {
+  console.log("Entry denied");
+}</code></pre>
+    </section>
+    <section class="slide" data-title="Exercise 8">
+      <div class="eyebrow">52 / CHALLENGING EXERCISE 08</div>
+      <h2>Multiplication table</h2>
+      <div class="activity">
+        <div class="activity-icon">08</div>
+        <div>
+          <h3>Loop + template literal</h3>
+          <p>Create a variable called <strong>number</strong>. Use a loop to print its multiplication table from
+            <strong>1 to 10</strong>.
+          </p>
+          <p><strong>Example:</strong> 5 × 1 = 5 ... 5 × 10 = 50</p>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="Exercise 8 solution">
+      <div class="eyebrow">53 / CHALLENGING SOLUTION 08</div>
+      <h2>Solution · Multiplication table</h2>
+      <pre><code>const number = 5;
+
+for (let i = 1; i &lt;= 10; i++) {
+  console.log(`${number} x ${i} = ${number * i}`);
+}</code></pre>
+    </section>
+    <section class="slide" data-title="Exercise 9">
+      <div class="eyebrow">54 / CHALLENGING EXERCISE 09</div>
+      <h2>Student grade report</h2>
+      <div class="activity">
+        <div class="activity-icon">09</div>
+        <div>
+          <h3>Object + function + condition</h3>
+          <p>Create a <strong>student object</strong> with <code>name</code>, <code>grade1</code>, <code>grade2</code>
+            and <code>grade3</code>. Then create a function that receives the object, calculates the average and returns
+            <strong>Excellent</strong> for 90+, <strong>Good</strong> for 70+, <strong>Passed</strong> for 50+,
+            otherwise <strong>Failed</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="slide" data-title="Exercise 9 solution">
+      <div class="eyebrow">55 / CHALLENGING SOLUTION 09</div>
+      <h2>Solution · Student grade report</h2>
+      <pre><code>const student = {
+  name: "Sara",
+  grade1: 80,
+  grade2: 75,
+  grade3: 70
+};
+
+function gradeReport(student) {
+  const average = (student.grade1 + student.grade2 + student.grade3) / 3;
+
+  if (average &gt;= 90) return "Excellent";
+  if (average &gt;= 70) return "Good";
+  if (average &gt;= 50) return "Passed";
+  return "Failed";
+}
+
+console.log(`${student.name}: ${gradeReport(student)}`); // Sara: Good</code></pre>
+    </section>
+    <section class="slide" data-title="Debugging">
+      <div class="eyebrow">56 / DEBUGGING &amp; REVIEW</div>
+      <h2>Errors are part of programming</h2>
+      <div class="cards">
+        <article>
+          <div class="card-icon">01</div>
+          <h3>Read</h3>
+          <p>Read the error message instead of ignoring it.</p>
+        </article>
+        <article>
+          <div class="card-icon">02</div>
+          <h3>Locate</h3>
+          <p>Look at the file name and line number.</p>
+        </article>
+        <article>
+          <div class="card-icon">03</div>
+          <h3>Inspect</h3>
+          <p>Use <code>console.log()</code> to check values step by step.</p>
+        </article>
+      </div>
+    </section>
+    <section class="slide" data-title="Debug this code">
+      <div class="eyebrow">57 / DEBUGGING &amp; REVIEW</div>
+      <h2>Can you find the mistakes?</h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">BROKEN CODE</div>
+          <pre><code>const age = 20
+
+if age &gt;= 18 {
+  console.log("Adult")
+}
+
+console.log(userName);</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">CHECK</div>
+          <ul>
+            <li>What syntax is missing?</li>
+            <li>Which variable does not exist?</li>
+            <li>What does the console say?</li>
+            <li>Which error should you fix first?</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="slide closing" data-title="Next steps">
+      <div class="eyebrow">58 / WRAP-UP</div>
+      <div class="centerpiece">
+        <div class="kicker">NEXT STEP</div>
+        <h1>Practice before<br><em>frameworks.</em></h1>
+        <p class="lead">Build confidence with variables, conditions, loops, functions, arrays and objects. Then DOM
+          manipulation and frameworks like React will make much more sense.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="bottom-ui">
+    <div class="controls">
+      <button id="themeToggle" aria-label="Switch to light mode" title="Switch theme">&#9788;</button>
+      <button id="prev" aria-label="Previous slide">&larr;</button>
+      <span id="counter">01 / 59</span>
+      <button id="next" aria-label="Next slide">&rarr;</button>
+      <button id="full" aria-label="Fullscreen">&#x26F6;</button>
+    </div>
+    <div class="signature">
+      <span class="signature-number" id="pageNumber">01</span>
+      <span class="logo-lockup">
+        <img src="../../assets/images/logo-transparent.png" alt="The Digital Hub logo">
+        <span class="logo-wordmark">THE<br>DIGITAL<br>HUB</span>
+      </span>
+    </div>
+  </div>
+  <div class="progress" id="progress"></div>
+  <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
