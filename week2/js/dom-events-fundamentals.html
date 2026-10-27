@@ -310,7 +310,7 @@ button.addEventListener(
       </div>
     </section>
 
-   
+
 
     <section class="slide" data-title="Input values">
       <div class="eyebrow">15 / FORMS &amp; INPUTS</div>
@@ -391,91 +391,17 @@ form.addEventListener("submit", function (event) {
       </div>
     </section>
 
-    
 
-    <section class="slide" data-title="Event delegation">
-      <div class="eyebrow">20 / EVENTS</div>
-      <h2>One listener can handle <em>many children.</em></h2>
-      <div class="code-layout">
-        <div>
-          <h3>Event delegation</h3>
-          <p>Listen on a parent and inspect <code>event.target</code>.</p>
-          <ul>
-            <li>Useful for lists and dynamically added elements</li>
-            <li>Avoids adding a listener to every child</li>
-          </ul>
-        </div>
-        <pre><code>const list = document.querySelector("#list");
 
-list.addEventListener("click", function (event) {
-  if (event.target.matches("button")) {
-    console.log("A list button was clicked");
-  }
-});</code></pre>
-      </div>
-    </section>
 
-    <section class="slide" data-title="defer and loading">
-      <div class="eyebrow">21 / LOADING JAVASCRIPT</div>
-      <h2>Make sure HTML exists <em>before selecting it.</em></h2>
-      <div class="compare">
-        <div>
-          <div class="compare-label">RECOMMENDED</div>
-          <pre><code>&lt;script
-  src="script.js"
-  defer&gt;
-&lt;/script&gt;</code></pre>
-          <p><code>defer</code> lets HTML parsing continue and runs the script after the document is parsed.</p>
-        </div>
-        <div>
-          <div class="compare-label">ALTERNATIVE</div>
-          <pre><code>document.addEventListener(
-  "DOMContentLoaded",
-  function () {
-    // DOM is ready
-  }
-);</code></pre>
-        </div>
-      </div>
-    </section>
 
-    <section class="slide" data-title="Mini project">
-      <div class="eyebrow">22 / PRACTICE</div>
-      <h2>Mini project · Interactive profile card</h2>
-      <div class="activity">
-        <div class="activity-icon">&lt;/&gt;</div>
-        <div>
-          <h3>Build a small DOM interaction</h3>
-          <p>Create a profile card with a name, description, input and button.</p>
-          <p>On button click: read the input, update the name, and toggle a highlight class on the card.</p>
-          <p><strong>Bonus:</strong> add a reset button that restores the original name.</p>
-        </div>
-      </div>
-    </section>
 
-    <section class="slide" data-title="Mini project solution">
-      <div class="eyebrow">23 / PRACTICE SOLUTION</div>
-      <h2>One possible solution</h2>
-      <pre><code>const card = document.querySelector(".profile-card");
-const nameText = document.querySelector("#name");
-const input = document.querySelector("#nameInput");
-const button = document.querySelector("#updateBtn");
 
-button.addEventListener("click", function () {
-  const newName = input.value.trim();
 
-  if (newName === "") return;
 
-  nameText.textContent = newName;
-  card.classList.toggle("highlight");
-  input.value = "";
-});</code></pre>
-    </section>
-
-    
 
     <section class="slide closing" data-title="Next step">
-      <div class="eyebrow">25 / WRAP-UP</div>
+      <div class="eyebrow">19 / WRAP-UP</div>
       <div class="centerpiece">
         <div class="kicker">NEXT STEP</div>
         <h1>Turn static pages into<br><em>interactive experiences.</em></h1>
