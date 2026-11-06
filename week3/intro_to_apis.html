@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../../assets/images/the_digital_hub_unrwa_logo-removebg-preview.png">
+    <title>JSON, HTTP & APIs | The Digital Hub</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+
+<body>
+    <div class="deck" id="deck">
+
+        <section class="slide active hero" data-title="JSON, HTTP & APIs">
+            <div class="eyebrow"><span class="dot"></span> THE DIGITAL HUB <span class="muted">/ WEB FUNDAMENTALS</span>
+            </div>
+            <img class="hero-logo" src="../../assets/images/the-digital-hub-full-logo.png" alt="The Digital Hub">
+            <div class="hero-content">
+                <div class="kicker">FRONTEND DEVELOPMENT / WEB COMMUNICATION</div>
+                <h1>JSON, HTTP<br><em>&amp; APIs.</em></h1>
+                <p class="lead">Understand how browsers communicate with servers, how data is exchanged, and how to use
+                    public APIs with plain JavaScript.</p>
+                <div class="chips"><span>JSON</span><span>HTTP</span><span>STATUS
+                        CODES</span><span>FETCH</span><span>PUBLIC APIs</span></div>
+            </div>
+        </section>
+
+        <section class="slide" data-title="The big picture">
+            <div class="eyebrow">01 / THE BIG PICTURE</div>
+            <h2>How does a webpage get <em>data?</em></h2>
+            <div class="architecture">
+                <div class="node"><small>CLIENT</small><strong>Browser</strong><span>Your HTML, CSS and
+                        JavaScript</span></div>
+                <div class="arrow">→</div>
+                <div class="node"><small>REQUEST</small><strong>HTTP</strong><span>Ask a server for data or send
+                        data</span></div>
+                <div class="arrow">→</div>
+                <div class="node"><small>SERVER</small><strong>API</strong><span>Processes the request and returns a
+                        response</span></div>
+            </div>
+            <div class="note">EXAMPLE <span>A weather app asks a weather API for today's forecast.</span></div>
+        </section>
+
+        <section class="slide" data-title="What is an API?">
+            <div class="eyebrow">02 / APIS</div>
+            <h2>What is an <em>API?</em></h2>
+            <p class="sub">API stands for Application Programming Interface. In web development, an API often lets one
+                application request data or actions from another system.</p>
+            <div class="cards">
+                <article>
+                    <div class="card-icon">APP</div>
+                    <h3>Your frontend</h3>
+                    <p>Your JavaScript asks for data.</p>
+                </article>
+                <article>
+                    <div class="card-icon">API</div>
+                    <h3>Communication layer</h3>
+                    <p>Provides endpoints that accept requests.</p>
+                </article>
+                <article>
+                    <div class="card-icon">DATA</div>
+                    <h3>Response</h3>
+                    <p>The API usually returns structured data such as JSON.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="slide" data-title="What is JSON?">
+            <div class="eyebrow">03 / JSON</div>
+            <h2>What is <em>JSON?</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>JavaScript Object Notation</h3>
+                    <p>JSON is a text format used to exchange structured data between systems.</p>
+                    <ul>
+                        <li>Easy for humans to read</li>
+                        <li>Easy for programs to parse</li>
+                        <li>Very common in web APIs</li>
+                    </ul>
+                </div>
+                <pre><code>{
+  "name": "Sara",
+  "age": 20,
+  "isStudent": true
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="slide" data-title="JSON vs JavaScript object">
+            <div class="eyebrow">04 / JSON</div>
+            <h2>JSON is similar to an object—but not the same</h2>
+            <div class="compare">
+                <div>
+                    <div class="compare-label">JAVASCRIPT OBJECT</div>
+                    <pre><code>const student = {
+  name: "Sara",
+  age: 20,
+  active: true
+};</code></pre>
+                    <p>Keys do not always need quotes. It exists directly in JavaScript memory.</p>
+                </div>
+                <div>
+                    <div class="compare-label">JSON TEXT</div>
+                    <pre><code>{
+  "name": "Sara",
+  "age": 20,
+  "active": true
+}</code></pre>
+                    <p>Keys use double quotes. JSON itself is text sent between systems.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" data-title="JSON data types">
+            <div class="eyebrow">05 / JSON</div>
+            <h2>What can JSON contain?</h2>
+            <div class="cards">
+                <article>
+                    <div class="card-icon">"A"</div>
+                    <h3>Strings</h3>
+                    <p><code>"Lebanon"</code></p>
+                </article>
+                <article>
+                    <div class="card-icon">123</div>
+                    <h3>Numbers</h3>
+                    <p><code>25</code> or <code>12.5</code></p>
+                </article>
+                <article>
+                    <div class="card-icon">{ }</div>
+                    <h3>Objects &amp; arrays</h3>
+                    <p>Nested data structures are common.</p>
+                </article>
+            </div>
+            <div class="note">ALSO <span>boolean: true / false &nbsp; · &nbsp; null &nbsp; · &nbsp; arrays: [ ]</span>
+            </div>
+        </section>
+
+        <section class="slide" data-title="Nested JSON">
+            <div class="eyebrow">06 / JSON</div>
+            <h2>JSON can contain <em>nested data.</em></h2>
+            <pre><code>{
+  "id": 1,
+  "name": "Sara",
+  "skills": ["HTML", "CSS", "JavaScript"],
+  "address": {
+    "city": "Beirut",
+    "country": "Lebanon"
+  }
+}</code></pre>
+            <div class="note">READ IT LIKE AN OBJECT <span>user.address.city &nbsp; · &nbsp; user.skills[0]</span></div>
+        </section>
+
+        <section class="slide" data-title="JSON parse stringify">
+            <div class="eyebrow">07 / JSON</div>
+            <h2>Convert between JSON text and JavaScript</h2>
+            <div class="compare">
+                <div>
+                    <div class="compare-label">JSON → JAVASCRIPT</div>
+                    <pre><code>const jsonText = '{"name":"Sara","age":20}';
+
+const user = JSON.parse(jsonText);
+
+console.log(user.name);</code></pre>
+                </div>
+                <div>
+                    <div class="compare-label">JAVASCRIPT → JSON</div>
+                    <pre><code>const user = {
+  name: "Sara",
+  age: 20
+};
+
+const jsonText = JSON.stringify(user);</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" data-title="What is HTTP?">
+            <div class="eyebrow">08 / HTTP</div>
+            <h2>What is <em>HTTP?</em></h2>
+            <p class="sub">HTTP is the protocol used for communication between web clients and servers.</p>
+            <div class="architecture">
+                <div class="node"><small>CLIENT</small><strong>Browser</strong><span>Creates a request</span></div>
+                <div class="arrow">→</div>
+                <div class="node"><small>HTTP</small><strong>Request</strong><span>Method + URL + headers + optional
+                        body</span></div>
+                <div class="arrow">→</div>
+                <div class="node"><small>SERVER</small><strong>Response</strong><span>Status + headers + optional
+                        body</span></div>
+            </div>
+        </section>
+
+        <section class="slide" data-title="HTTP request">
+            <div class="eyebrow">09 / HTTP</div>
+            <h2>What is inside an HTTP <em>request?</em></h2>
+            <div class="cards">
+                <article>
+                    <div class="card-icon">GET</div>
+                    <h3>Method</h3>
+                    <p>What kind of action do we want?</p>
+                </article>
+                <article>
+                    <div class="card-icon">URL</div>
+                    <h3>Endpoint</h3>
+                    <p>Which resource are we requesting?</p>
+                </article>
+                <article>
+                    <div class="card-icon">{ }</div>
+                    <h3>Optional data</h3>
+                    <p>Headers and sometimes a request body.</p>
+                </article>
+            </div>
+            <div class="note">Note <span>Headers describe the request or its content, while the body carries the data
+                    being sent</span></div>
+
+            <div class="note">EXAMPLE <span>GET https://jsonplaceholder.typicode.com/users</span></div>
+        </section>
+
+        <section class="slide" data-title="HTTP response">
+            <div class="eyebrow">10 / HTTP</div>
+            <h2>What comes back in a <em>response?</em></h2>
+            <div class="cards">
+                <article>
+                    <div class="card-icon">200</div>
+                    <h3>Status code</h3>
+                    <p>Tells us whether the request succeeded or failed.</p>
+                </article>
+                <article>
+                    <div class="card-icon">HDR</div>
+                    <h3>Headers</h3>
+                    <p>Metadata about the response.</p>
+                </article>
+                <article>
+                    <div class="card-icon">JSON</div>
+                    <h3>Body</h3>
+                    <p>The returned content, often JSON.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="slide" data-title="HTTP methods">
+            <div class="eyebrow">11 / HTTP METHODS</div>
+            <h2>Common HTTP methods</h2>
+            <div class="agenda">
+                <div><b>G</b><strong>GET</strong><span>Read or retrieve data</span></div>
+                <div><b>P</b><strong>POST</strong><span>Create new data</span></div>
+                <div><b>P</b><strong>PUT</strong><span>Replace an existing resource</span></div>
+                <div><b>P</b><strong>PATCH</strong><span>Update part of an existing resource</span></div>
+                <div><b>D</b><strong>DELETE</strong><span>Remove a resource</span></div>
+            </div>
+        </section>
+
+        <section class="slide" data-title="GET example">
+            <div class="eyebrow">12 / HTTP METHODS</div>
+            <h2><code>GET</code> — ask for data</h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Example request</h3>
+                    <p>Get a list of users from a public demo API.</p>
+                    <ul>
+                        <li>No request body is normally needed</li>
+                        <li>Data comes back in the response</li>
+                    </ul>
+                </div>
+                <pre><code>GET /users
+
+// Example with fetch:
+fetch(
+  "https://jsonplaceholder.typicode.com/users"
+);</code></pre>
+            </div>
+        </section>
+
+        <section class="slide" data-title="POST example">
+            <div class="eyebrow">13 / HTTP METHODS</div>
+            <h2><code>POST</code> — send new data</h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Example</h3>
+                    <p>Create a new post by sending JSON in the request body.</p>
+                </div>
+                <pre><code>fetch(
+  "https://jsonplaceholder.typicode.com/posts",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      title: "Hello",
+      body: "My first API request",
+      userId: 1
+    })
+  }
+);</code></pre>
+            </div>
+        </section>
+
+        <section class="slide" data-title="PUT PATCH DELETE">
+            <div class="eyebrow">14 / HTTP METHODS</div>
+            <h2>Update and delete data</h2>
+            <div class="cards">
+                <article>
+                    <div class="card-icon">PUT</div>
+                    <h3>Replace</h3>
+                    <p>Send a complete replacement for a resource.</p>
+                </article>
+                <article>
+                    <div class="card-icon">PATCH</div>
+                    <h3>Partial update</h3>
+                    <p>Send only the fields that need to change.</p>
+                </article>
+                <article>
+                    <div class="card-icon">DELETE</div>
+                    <h3>Remove</h3>
+                    <p>Request deletion of a resource.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="slide" data-title="Status code groups">
+            <div class="eyebrow">15 / STATUS CODES</div>
+            <h2>HTTP status codes tell us <em>what happened.</em></h2>
+            <div class="agenda">
+                <div><b>2xx</b><strong>Success</strong><span>The request worked</span></div>
+                <div><b>4xx</b><strong>Client error</strong><span>Something is wrong with the request</span></div>
+                <div><b>5xx</b><strong>Server error</strong><span>The server failed while handling the request</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" data-title="Common status codes">
+            <div class="eyebrow">16 / STATUS CODES</div>
+            <h2>Status codes you should recognize</h2>
+            <div class="agenda">
+                <div><b>200</b><strong>OK</strong><span>Successful request</span></div>
+                <div><b>201</b><strong>Created</strong><span>A new resource was created</span></div>
+                <div><b>204</b><strong>No Content</strong><span>Success, but no response body</span></div>
+                <div><b>400</b><strong>Bad Request</strong><span>Invalid request data</span></div>
+                <div><b>401</b><strong>Unauthorized</strong><span>Authentication is required or invalid</span></div>
+                <div><b>403</b><strong>Forbidden</strong><span>Authenticated, but not allowed</span></div>
+                <div><b>404</b><strong>Not Found</strong><span>The resource does not exist</span></div>
+                <div><b>500</b><strong>Server Error</strong><span>The server failed unexpectedly</span></div>
+            </div>
+        </section>
+
+        <section class="slide" data-title="401 vs 403">
+            <div class="eyebrow">17 / STATUS CODES</div>
+            <h2><code>401</code> vs <code>403</code></h2>
+            <div class="compare">
+                <div>
+                    <div class="compare-label">401 — UNAUTHORIZED</div>
+                    <h3>Who are you?</h3>
+                    <p>The server requires valid authentication.</p>
+                    <pre><code>// Example:
+No token
+Expired token
+Invalid credentials</code></pre>
+                </div>
+                <div>
+                    <div class="compare-label">403 — FORBIDDEN</div>
+                    <h3>You cannot do that</h3>
+                    <p>The server knows who you are, but you do not have permission.</p>
+                    <pre><code>// Example:
+Student tries to access
+an admin-only route</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" data-title="Request response lifecycle">
+            <div class="eyebrow">18 / REQUEST–RESPONSE LIFECYCLE</div>
+            <h2>Follow one request from start</h2>
+            <div class="takeaways">
+                <div><b>01</b>JavaScript sends an HTTP request to an API endpoint.</div>
+                <div><b>02</b>The request travels to the server.</div>
+                <div><b>03</b>The server reads the method, URL, headers and body.</div>
+                <div><b>04</b>The server processes the request and talks to a database.</div>
+                <div><b>05</b>The server sends an HTTP response.</div>
+                <div><b>06</b>JavaScript reads the response and updates the page.</div>
+            </div>
+        </section>
+
+        <section class="slide" data-title="API endpoint">
+            <div class="eyebrow">19 / API DOCUMENTATION</div>
+            <h2>What is an <em>endpoint?</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>An endpoint is a specific API URL</h3>
+                    <p>Different endpoints usually represent different resources.</p>
+                </div>
+                <pre><code>GET /users
+GET /users/1
+
+GET /posts
+GET /posts/10
+
+POST /posts
+DELETE /posts/10</code></pre>
+            </div>
+        </section>
+
+        <section class="slide" data-title="Read API documentation">
+            <div class="eyebrow">20 / API DOCUMENTATION</div>
+            <h2>How to read API documentation</h2>
+            <div class="takeaways">
+                <div><b>01</b>Find the base URL.</div>
+                <div><b>02</b>Find the endpoint you need.</div>
+                <div><b>03</b>Check the HTTP method.</div>
+                <div><b>04</b>Check required parameters, query values or request body.</div>
+                <div><b>05</b>Check authentication requirements.</div>
+                <div><b>06</b>Read the example response and possible status codes.</div>
+            </div>
+        </section>
+
+        <section class="slide" data-title="Documentation example">
+            <div class="eyebrow">21 / API DOCUMENTATION</div>
+            <h2>Example documentation entry</h2>
+            <div class="compare">
+                <div>
+                    <div class="compare-label">DOCUMENTATION SAYS</div>
+                    <pre><code>Endpoint:
+GET /users/{id}
+
+Path parameter:
+id — user ID
+
+Example:
+GET /users/3</code></pre>
+                </div>
+                <div>
+                    <div class="compare-label">YOUR JAVASCRIPT</div>
+                    <pre><code>const userId = 3;
+
+const response = await fetch(
+  `https://jsonplaceholder.typicode.com/users/${userId}`
+);
+
+const user = await response.json();
+
+console.log(user.name);</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" data-title="Path vs query parameters">
+            <div class="eyebrow">22 / API DOCUMENTATION</div>
+            <h2>Path parameters vs query parameters</h2>
+            <div class="compare">
+                <div>
+                    <div class="compare-label">PATH PARAMETER</div>
+                    <pre><code>/users/5</code></pre>
+                    <p>Usually identifies one specific resource.</p>
+                </div>
+                <div>
+                    <div class="compare-label">QUERY PARAMETER</div>
+                    <pre><code>/posts?userId=5</code></pre>
+                    <p>Often used for filtering, sorting, searching or pagination.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" data-title="Headers">
+            <div class="eyebrow">23 / API DOCUMENTATION</div>
+            <h2>What are HTTP <em>headers?</em></h2>
+            <div class="code-layout">
+                <div>
+                    <h3>Extra information about the request</h3>
+                    <ul>
+                        <li><code>Content-Type</code> describes the body format</li>
+                        <li><code>Authorization</code> can carry credentials or tokens</li>
+                    </ul>
+                </div>
+                <pre><code>fetch(url, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(data)
+});</code></pre>
+            </div>
+        </section>
+
+
+
+
+
+
+
+        <section class="slide" data-title="Common beginner mistakes">
+            <div class="eyebrow">24 / COMMON MISTAKES</div>
+            <h2>Common mistakes when using APIs</h2>
+            <div class="takeaways">
+                <div><b>01</b>Forgetting that <code>fetch()</code> is asynchronous.</div>
+                <div><b>02</b>Forgetting <code>await response.json()</code>.</div>
+                <div><b>03</b>Assuming every request returns status 200.</div>
+                <div><b>04</b>Using the wrong HTTP method.</div>
+                <div><b>05</b>Ignoring the API documentation.</div>
+                <div><b>06</b>Putting secret credentials directly in frontend JavaScript.</div>
+            </div>
+        </section>
+
+        <section class="slide" data-title="Review">
+            <div class="eyebrow">25 / REVIEW</div>
+            <h2>The workflow to remember</h2>
+            <div class="architecture">
+                <div class="node"><small>1</small><strong>Read the docs</strong><span>Endpoint, method,
+                        parameters</span></div>
+                <div class="arrow">→</div>
+                <div class="node"><small>2</small><strong>Send request</strong><span>Use fetch()</span></div>
+                <div class="arrow">→</div>
+                <div class="node"><small>3</small><strong>Handle response</strong><span>Status + JSON + DOM</span></div>
+            </div>
+        </section>
+
+        <section class="slide closing" data-title="Next step">
+            <div class="eyebrow">26 / WRAP-UP</div>
+            <div class="centerpiece">
+                <div class="kicker">NEXT STEP</div>
+                <h1>Connect your webpage<br><em>to real data.</em></h1>
+                <p class="lead">Practice JSON, HTTP methods, status codes, <code>fetch()</code>, error handling and
+                    reading API documentation before moving into framework-based data fetching.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="bottom-ui">
+        <div class="controls">
+            <button id="themeToggle" aria-label="Switch to light mode" title="Switch theme">&#9788;</button>
+            <button id="prev" aria-label="Previous slide">&larr;</button>
+            <span id="counter">01 / 37</span>
+            <button id="next" aria-label="Next slide">&rarr;</button>
+            <button id="full" aria-label="Fullscreen">&#x26F6;</button>
+        </div>
+        <div class="signature">
+            <span class="signature-number" id="pageNumber">01</span>
+            <span class="logo-lockup">
+                <img src="../../assets/images/logo-transparent.png" alt="The Digital Hub logo">
+                <span class="logo-wordmark">THE<br>DIGITAL<br>HUB</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="progress" id="progress"></div>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
