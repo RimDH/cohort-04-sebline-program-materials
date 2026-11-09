@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png"
+    href="/cohort-04-sebline-program-materials/assets/images/the_digital_hub_unrwa_logo-removebg-preview.png">
+  <title>React Fundamentals | The Digital Hub</title>
+  <link rel="stylesheet" href="/cohort-04-sebline-program-materials/assets/css/style.css">
+</head>
+
+<body>
+  <div class="deck" id="deck">
+
+    <section class="slide active hero" data-title="React Fundamentals">
+      <div class="eyebrow"><span class="dot"></span> THE DIGITAL HUB <span class="muted">/ FRONTEND DEVELOPMENT</span>
+      </div>
+      <img class="hero-logo" src="/cohort-04-sebline-program-materials/assets/images/the-digital-hub-full-logo.png"
+        alt="The Digital Hub">
+      <div class="hero-content">
+        <div class="kicker">WEEK 6 / REACT FUNDAMENTALS</div>
+        <h1>Think in<br><em>components.</em></h1>
+        <p class="lead">Move from manually changing the DOM to building reusable, state-driven user interfaces with
+          React.</p>
+        <div class="chips">
+          <span>JSX</span><span>COMPONENTS</span><span>PROPS</span><span>STATE</span><span>EFFECTS</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="What is React?">
+      <div class="eyebrow">01 / INTRODUCTION</div>
+      <h2>What is <em>React?</em></h2>
+      <div class="cards">
+        <article>
+          <div class="card-icon">UI</div>
+          <h3>A JavaScript library</h3>
+          <p>React helps you build user interfaces from reusable components.</p>
+        </article>
+        <article>
+          <div class="card-icon">CMP</div>
+          <h3>Component-based</h3>
+          <p>Break the interface into small pieces with their own logic and UI.</p>
+        </article>
+        <article>
+          <div class="card-icon">STATE</div>
+          <h3>State-driven</h3>
+          <p>You describe what the UI should look like for the current data.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" data-title="What React does not replace">
+      <div class="eyebrow">02 / INTRODUCTION</div>
+      <h2>React does not replace your <em>fundamentals.</em></h2>
+      <div class="architecture">
+        <div class="node"><small>HTML</small><strong>Structure</strong><span>React uses JSX to describe markup</span>
+        </div>
+        <div class="arrow">+</div>
+        <div class="node"><small>CSS</small><strong>Appearance</strong><span>You still style your interface</span></div>
+        <div class="arrow">+</div>
+        <div class="node"><small>JAVASCRIPT</small><strong>Logic</strong><span>Functions, arrays, objects, events,
+            APIs</span></div>
+      </div>
+      <div class="note">IMPORTANT <span>React becomes much easier when your JavaScript fundamentals are strong.</span>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Why React?">
+      <div class="eyebrow">03 / INTRODUCTION</div>
+      <h2>Why use React?</h2>
+      <div class="cards">
+        <article>
+          <div class="card-icon">01</div>
+          <h3>Reusable UI</h3>
+          <p>Create a component once and reuse it with different data.</p>
+        </article>
+        <article>
+          <div class="card-icon">02</div>
+          <h3>Manage changing UI</h3>
+          <p>State makes interactive interfaces easier to reason about.</p>
+        </article>
+        <article>
+          <div class="card-icon">03</div>
+          <h3>Organize large apps</h3>
+          <p>Split the interface into focused, maintainable components.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Imperative vs declarative">
+      <div class="eyebrow">04 / REACT MENTAL MODEL</div>
+      <h2>From imperative DOM code to <em>declarative UI.</em></h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">VANILLA JS — IMPERATIVE</div>
+          <pre><code>const button = document.querySelector("#btn");
+const countText = document.querySelector("#count");
+
+let count = 0;
+
+button.addEventListener("click", () =&gt; {
+  count++;
+  countText.textContent = count;
+});</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">REACT — DECLARATIVE</div>
+          <pre><code>function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+      Count: {count}
+    &lt;/button&gt;
+  );
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="React mental model">
+      <div class="eyebrow">05 / REACT MENTAL MODEL</div>
+      <h2>Think: <em>UI = function of data.</em></h2>
+      <div class="architecture">
+        <div class="node"><small>INPUT</small><strong>Props + state</strong><span>Current application data</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><small>COMPONENT</small><strong>JavaScript function</strong><span>Returns JSX</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><small>OUTPUT</small><strong>User interface</strong><span>React updates the browser</span>
+        </div>
+      </div>
+      <div class="note">MENTAL SHIFT <span>Change the data/state. React handles updating the DOM.</span></div>
+    </section>
+
+    <section class="slide dense" data-title="Prerequisites">
+      <div class="eyebrow">06 / BEFORE REACT</div>
+      <h2>What should you know first?</h2>
+      <div class="agenda">
+        <div><b>1</b><strong>HTML &amp; CSS</strong><span>Structure, forms, classes, responsive basics</span></div>
+        <div><b>2</b><strong>JavaScript basics</strong><span>Variables, conditions, functions, arrays, objects</span>
+        </div>
+        <div><b>3</b><strong>Modern JS</strong><span>Arrow functions, destructuring, spread, template literals</span>
+        </div>
+        <div><b>4</b><strong>Array methods</strong><span>Especially map(), filter() and find()</span></div>
+        <div><b>5</b><strong>Modules</strong><span>import and export</span></div>
+        <div><b>6</b><strong>Browser basics</strong><span>Events, fetch(), JSON and async/await</span></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Tools needed">
+      <div class="eyebrow">07 / SETUP</div>
+      <h2>What do we need locally?</h2>
+      <div class="cards">
+        <article>
+          <div class="card-icon">VS</div>
+          <h3>Code editor</h3>
+          <p>VS Code or another modern editor.</p>
+        </article>
+        <article>
+          <div class="card-icon">NODE</div>
+          <h3>Node.js</h3>
+          <p>Runs the development tooling on your computer.</p>
+        </article>
+        <article>
+          <div class="card-icon">NPM</div>
+          <h3>npm</h3>
+          <p>Installs React and other project packages.</p>
+        </article>
+      </div>
+      <div class="note">VERIFY <span>node --version &nbsp; · &nbsp; npm --version</span></div>
+    </section>
+
+    <section class="slide" data-title="Why Node for React?">
+      <div class="eyebrow">08 / SETUP</div>
+      <h2>Why do we install <em>Node.js?</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>Node runs JavaScript outside the browser</h3>
+          <p>Your React UI still runs in the browser, but modern development tools run locally through Node.js.</p>
+          <ul>
+            <li>Run Vite's development server</li>
+            <li>Install and execute project packages</li>
+            <li>Build optimized production files</li>
+          </ul>
+        </div>
+        <pre><code>npm run dev
+
+// Node runs Vite locally.
+// Vite serves your React app.
+// The browser runs the final frontend code.</code></pre>
+      </div>
+      <div class="note">DO NOT CONFUSE THEM <span>Installing Node for React development does not mean your React app is
+          a Node backend.</span></div>
+    </section>
+
+    <section class="slide" data-title="What is npm?">
+      <div class="eyebrow">09 / SETUP</div>
+      <h2>What is <em>npm?</em></h2>
+      <div class="cards">
+        <article>
+          <div class="card-icon">PKG</div>
+          <h3>Package manager</h3>
+          <p>Downloads JavaScript packages your project depends on.</p>
+        </article>
+        <article>
+          <div class="card-icon">RUN</div>
+          <h3>Runs scripts</h3>
+          <p>Commands like <code>npm run dev</code> and <code>npm run build</code>.</p>
+        </article>
+        <article>
+          <div class="card-icon">JSON</div>
+          <h3>Reads package.json</h3>
+          <p>Tracks dependencies, scripts and project metadata.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" data-title="What is Vite?">
+      <div class="eyebrow">10 / SETUP</div>
+      <h2>What is <em>Vite?</em></h2>
+      <p class="sub">Vite is a modern frontend build tool. For this course, we use it to create and run a simple
+        client-side React app.</p>
+      <div class="cards">
+        <article>
+          <div class="card-icon">DEV</div>
+          <h3>Development server</h3>
+          <p>Runs your app locally with fast updates.</p>
+        </article>
+        <article>
+          <div class="card-icon">JSX</div>
+          <h3>React tooling</h3>
+          <p>Handles JSX, modules and development transforms.</p>
+        </article>
+        <article>
+          <div class="card-icon">BUILD</div>
+          <h3>Production build</h3>
+          <p>Creates optimized files for deployment.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Create a modern React app">
+      <div class="eyebrow">11 / SETUP</div>
+      <h2>Create your first React app</h2>
+      <pre><code># 1. Create the project
+npm create vite@latest my-react-app -- --template react
+
+# 2. Enter the folder
+cd my-react-app
+
+
+# 3. Start development
+npm run dev</code></pre>
+      <div class="note">CURRENT TOOLING <span>Use a currently supported Node.js version. Vite 8 currently requires
+          Node.js 20.19+ or 22.12+.</span></div>
+    </section>
+
+    <section class="slide" data-title="Create React App">
+      <div class="eyebrow">12 / SETUP</div>
+      <h2>What about <code>create-react-app</code>?</h2>
+      <div class="activity">
+        <div class="activity-icon">!</div>
+        <div>
+          <h3>Create React App is deprecated</h3>
+          <p>Do not start new beginner projects with <code>npx create-react-app</code>.</p>
+          <p>React's current documentation recommends frameworks for full applications, or build tools such as Vite when
+            learning React from scratch.</p>
+          <p><strong>For this fundamentals course:</strong> Vite keeps the setup simple and lets us focus on React
+            itself.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide dense" data-title="React folder structure">
+      <div class="eyebrow">13 / PROJECT STRUCTURE</div>
+      <h2>What is inside a Vite React project?</h2>
+      <pre><code>my-react-app/
+├── node_modules/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+└── vite.config.js</code></pre>
+    </section>
+
+    <section class="slide" data-title="Important project files">
+      <div class="eyebrow">14 / PROJECT STRUCTURE</div>
+      <h2>What does each file do?</h2>
+      <div class="agenda">
+        <div><b>A</b><strong>src/</strong><span>Your application code lives here</span></div>
+        <div><b>M</b><strong>main.jsx</strong><span>Connects React to the HTML page</span></div>
+        <div><b>A</b><strong>App.jsx</strong><span>Your main/root component</span></div>
+        <div><b>P</b><strong>public/</strong><span>Static files served directly</span></div>
+        <div><b>P</b><strong>package.json</strong><span>Dependencies and npm scripts</span></div>
+        <div><b>V</b><strong>vite.config.js</strong><span>Vite configuration when needed</span></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="node_modules package files">
+      <div class="eyebrow">15 / PROJECT STRUCTURE</div>
+      <h2>Three files beginners often confuse</h2>
+      <div class="cards">
+        <article>
+          <div class="card-icon">NM</div>
+          <h3>node_modules</h3>
+          <p>Downloaded packages. Usually large. Do not edit it or push it to Git.</p>
+        </article>
+        <article>
+          <div class="card-icon">{ }</div>
+          <h3>package.json</h3>
+          <p>Declares dependencies and project scripts.</p>
+        </article>
+        <article>
+          <div class="card-icon">LOCK</div>
+          <h3>package-lock.json</h3>
+          <p>Records exact dependency versions so installations stay consistent.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" data-title="npm commands">
+      <div class="eyebrow">16 / PROJECT STRUCTURE</div>
+      <h2>npm commands you will use often</h2>
+      <div class="code-layout">
+        <div>
+          <ul>
+            <li><code>npm install</code> → install project dependencies</li>
+            <li><code>npm install package-name</code> → add a package</li>
+            <li><code>npm run dev</code> → start development</li>
+            <li><code>npm run build</code> → create production build</li>
+          </ul>
+        </div>
+        <pre><code>npm install
+npm install some-package
+npm run dev
+npm run build</code></pre>
+      </div>
+    </section>
+
+    <section class="slide" data-title="main.jsx">
+      <div class="eyebrow">17 / FIRST REACT APP</div>
+      <h2>Where does React <em>start?</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3><code>main.jsx</code></h3>
+          <p>React finds the HTML root element and renders your app inside it.</p>
+        </div>
+        <pre><code>import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+
+createRoot(document.getElementById("root")).render(
+  &lt;StrictMode&gt;
+    &lt;App /&gt;
+  &lt;/StrictMode&gt;
+);</code></pre>
+      </div>
+    </section>
+
+    <section class="slide" data-title="App component">
+      <div class="eyebrow">18 / FIRST REACT APP</div>
+      <h2>Your first component</h2>
+      <pre><code>function App() {
+  return (
+    &lt;main&gt;
+      &lt;h1&gt;Hello React!&lt;/h1&gt;
+      &lt;p&gt;My first component is working.&lt;/p&gt;
+    &lt;/main&gt;
+  );
+}
+
+export default App;</code></pre>
+      <div class="note">CORE IDEA <span>A React component is usually a JavaScript function that returns JSX.</span>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Components">
+      <div class="eyebrow">19 / COMPONENTS</div>
+      <h2>Break the page into <em>components.</em></h2>
+      <div class="architecture">
+        <div class="node"><small>APP</small><strong>App</strong><span>Main application component</span></div>
+        <div class="arrow">→ </div>
+        <div class="node"><small>CHILDREN</small><strong>Header · ProductList · Footer</strong><span>Smaller UI
+            sections</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><small>REUSE</small><strong>ProductCard</strong><span>Rendered many times with different
+            props</span></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Create a component">
+      <div class="eyebrow">20 / COMPONENTS</div>
+      <h2>Create and use a component</h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">COMPONENT</div>
+          <pre><code>function Welcome() {
+  return (
+    &lt;h2&gt;Welcome students!&lt;/h2&gt;
+  );
+}</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">USE IT</div>
+          <pre><code>function App() {
+  return (
+    &lt;div&gt;
+      &lt;Welcome /&gt;
+      &lt;Welcome /&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+        </div>
+      </div>
+      <div class="note">RULE <span>Custom component names must begin with a capital letter.</span></div>
+    </section>
+
+    <section class="slide" data-title="Import export">
+      <div class="eyebrow">21 / COMPONENTS</div>
+      <h2>Split components into files</h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">Header.jsx</div>
+          <pre><code>function Header() {
+  return &lt;h1&gt;My Store&lt;/h1&gt;;
+}
+
+export default Header;</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">App.jsx</div>
+          <pre><code>import Header from "./Header.jsx";
+
+function App() {
+  return &lt;Header /&gt;;
+}
+
+export default App;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="What is JSX?">
+      <div class="eyebrow">22 / JSX</div>
+      <h2>What is <em>JSX?</em></h2>
+      <p class="sub">JSX is a syntax extension for JavaScript that lets us describe UI with HTML-like markup inside
+        JavaScript.</p>
+      <pre><code>const name = "Sara";
+
+function Greeting() {
+  return (
+    &lt;section&gt;
+      &lt;h2&gt;Hello {name}!&lt;/h2&gt;
+      &lt;p&gt;Welcome to React.&lt;/p&gt;
+    &lt;/section&gt;
+  );
+}</code></pre>
+    </section>
+
+    <section class="slide dense" data-title="JSX rules">
+      <div class="eyebrow">23 / JSX</div>
+      <h2>Important JSX rules</h2>
+      <div class="takeaways">
+        <div><b>01</b>Return one parent element—or use a Fragment <code>&lt;&gt;...&lt;/&gt;</code>.</div>
+        <div><b>02</b>Close every tag: <code>&lt;img /&gt;</code>, <code>&lt;input /&gt;</code>.</div>
+        <div><b>03</b>Use <code>className</code> instead of HTML <code>class</code>.</div>
+        <div><b>04</b>Most DOM properties use camelCase, such as <code>onClick</code>.</div>
+        <div><b>05</b>Use curly braces to insert JavaScript expressions.</div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="JavaScript inside JSX">
+      <div class="eyebrow">24 / JSX</div>
+      <h2>Use JavaScript inside <code>{ }</code></h2>
+      <pre><code>function Product() {
+  const name = "Laptop";
+  const price = 900;
+  const inStock = true;
+
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;{name}&lt;/h2&gt;
+      &lt;p&gt;Price: ${price}&lt;/p&gt;
+      &lt;p&gt;{inStock ? "Available" : "Out of stock"}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+    </section>
+
+    <section class="slide" data-title="Styling React">
+      <div class="eyebrow">25 / JSX</div>
+      <h2>React still uses <em>CSS.</em></h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">Product.jsx</div>
+          <pre><code>import "./Product.css";
+
+function Product() {
+  return (
+    &lt;article className="product-card"&gt;
+      Laptop
+    &lt;/article&gt;
+  );
+}</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">Product.css</div>
+          <pre><code>.product-card {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Props">
+      <div class="eyebrow">26 / PROPS</div>
+      <h2>Props pass data from parent to child</h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">PARENT</div>
+          <pre><code>&lt;ProductCard name="Laptop" price={900} /&gt;
+&lt;ProductCard name="Mouse" price={25} /&gt;</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">CHILD</div>
+          <pre><code>function ProductCard({ name, price }) {
+  return (
+    &lt;article&gt;
+      &lt;h3&gt;{name}&lt;/h3&gt;
+      &lt;p&gt;${price}&lt;/p&gt;
+    &lt;/article&gt;
+  );
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Props are read only">
+      <div class="eyebrow">27 / PROPS</div>
+      <h2>Props are <em>read-only.</em></h2>
+      <div class="code-layout">
+        <div>
+          <h3>A child receives data</h3>
+          <p>The child should not modify the props it receives.</p>
+          <ul>
+            <li>Parent owns the value</li>
+            <li>Child receives the value</li>
+            <li>If data needs to change, use state in the appropriate component</li>
+          </ul>
+        </div>
+        <pre><code>function UserCard({ name }) {
+  // Do not do this:
+  // name = "New Name";
+
+  return &lt;h3&gt;{name}&lt;/h3&gt;;
+}</code></pre>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Children and composition">
+      <div class="eyebrow">28 / COMPONENT COMPOSITION</div>
+      <h2>Components can wrap other UI</h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">REUSABLE CARD</div>
+          <pre><code>function Card({ children }) {
+  return (
+    &lt;div className="card"&gt;
+      {children}
+    &lt;/div&gt;
+  );
+}</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">COMPOSITION</div>
+          <pre><code>&lt;Card&gt;
+  &lt;h2&gt;Student Profile&lt;/h2&gt;
+  &lt;p&gt;Frontend Developer&lt;/p&gt;
+&lt;/Card&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="What is state?">
+      <div class="eyebrow">29 / STATE</div>
+      <h2>State is a component's <em>memory.</em></h2>
+      <div class="cards">
+        <article>
+          <div class="card-icon">0</div>
+          <h3>Counter</h3>
+          <p>The current number changes after clicks.</p>
+        </article>
+        <article>
+          <div class="card-icon">ABC</div>
+          <h3>Input value</h3>
+          <p>The component remembers what the user typed.</p>
+        </article>
+        <article>
+          <div class="card-icon">ON</div>
+          <h3>UI state</h3>
+          <p>Menu open/closed, selected tab, loading status.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" data-title="useState">
+      <div class="eyebrow">30 / STATE</div>
+      <h2>Your first Hook: <code>useState</code></h2>
+      <pre><code>import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    &lt;button onClick={handleClick}&gt;
+      Count: {count}
+    &lt;/button&gt;
+  );
+}</code></pre>
+    </section>
+
+    <section class="slide" data-title="Understanding useState">
+      <div class="eyebrow">31 / STATE</div>
+      <h2>Read <code>useState</code> step by step</h2>
+      <div class="architecture">
+        <div class="node"><small>VALUE</small><strong>count</strong><span>Current state value</span></div>
+        <div class="arrow">+</div>
+        <div class="node"><small>SETTER</small><strong>setCount</strong><span>Requests a state update</span></div>
+        <div class="arrow">+</div>
+        <div class="node"><small>INITIAL</small><strong>0</strong><span>Starting state value</span></div>
+      </div>
+      <div class="note">WHEN STATE CHANGES <span>React renders the component again using the new state.</span></div>
+    </section>
+
+    <section class="slide" data-title="State is not a normal variable">
+      <div class="eyebrow">32 / STATE</div>
+      <h2>Do not change state directly</h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">WRONG</div>
+          <pre><code>let count = 0;
+
+function handleClick() {
+  count = count + 1;
+}
+
+// React is not told to re-render.</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">CORRECT</div>
+          <pre><code>const [count, setCount] = useState(0);
+
+function handleClick() {
+  setCount(count + 1);
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="slide" data-title="Object and array state">
+      <div class="eyebrow">34 / STATE</div>
+      <h2>Do not mutate objects or arrays in state</h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">OBJECT</div>
+          <pre><code>const [user, setUser] = useState({
+  name: "Sara",
+  age: 20
+});
+
+setUser({
+  ...user,
+  age: 21
+});</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">ARRAY</div>
+          <pre><code>const [skills, setSkills] =
+  useState(["HTML", "CSS"]);
+
+setSkills([
+  ...skills,
+  "React"
+]);</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Events">
+      <div class="eyebrow">35 / EVENTS</div>
+      <h2>React event handling</h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">HTML</div>
+          <pre><code>&lt;button onclick="doSomething()"&gt;
+  Click
+&lt;/button&gt;</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">REACT</div>
+          <pre><code>function handleClick() {
+  console.log("Clicked");
+}
+
+return (
+  &lt;button onClick={handleClick}&gt;
+    Click
+  &lt;/button&gt;
+);</code></pre>
+        </div>
+      </div>
+      <div class="note">NOTICE <span><code>onClick</code> is camelCase and receives a function—not the result of calling
+          it.</span></div>
+    </section>
+
+    <section class="slide" data-title="Event with data">
+      <div class="eyebrow">36 / EVENTS</div>
+      <h2>Pass data to an event handler</h2>
+      <pre><code>function ProductCard({ name }) {
+  function handleBuy() {
+    console.log(`Buying ${name}`);
+  }
+
+  return (
+    &lt;button onClick={handleBuy}&gt;
+      Buy {name}
+    &lt;/button&gt;
+  );
+}
+
+// With an argument:
+// onClick={() =&gt; handleBuy(product.id)}</code></pre>
+    </section>
+
+    <section class="slide" data-title="Controlled inputs">
+      <div class="eyebrow">37 / FORMS</div>
+      <h2>Controlled inputs: state controls the value</h2>
+      <pre><code>import { useState } from "react";
+
+function NameInput() {
+  const [name, setName] = useState("");
+
+  return (
+    &lt;&gt;
+      &lt;input
+        value={name}
+        onChange={(event) =&gt; setName(event.target.value)}
+      /&gt;
+      &lt;p&gt;Hello {name}&lt;/p&gt;
+    &lt;/&gt;
+  );
+}</code></pre>
+    </section>
+
+    <section class="slide" data-title="React forms">
+      <div class="eyebrow">38 / FORMS</div>
+      <h2>Handle a simple form</h2>
+      <pre><code>function SignupForm() {
+  const [email, setEmail] = useState("");
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log(email);
+  }
+
+  return (
+    &lt;form onSubmit={handleSubmit}&gt;
+      &lt;input
+        type="email"
+        value={email}
+        onChange={(event) =&gt; setEmail(event.target.value)}
+      /&gt;
+      &lt;button&gt;Submit&lt;/button&gt;
+    &lt;/form&gt;
+  );
+}</code></pre>
+    </section>
+
+    <section class="slide" data-title="Conditional rendering">
+      <div class="eyebrow">39 / RENDERING</div>
+      <h2>Render UI <em>conditionally.</em></h2>
+      <div class="compare">
+        <div>
+          <div class="compare-label">TERNARY</div>
+          <pre><code>function Status({ loggedIn }) {
+  return (
+    &lt;p&gt;
+      {loggedIn
+        ? "Welcome back"
+        : "Please log in"}
+    &lt;/p&gt;
+  );
+}</code></pre>
+        </div>
+        <div>
+          <div class="compare-label">&amp;&amp;</div>
+          <pre><code>function Cart({ count }) {
+  return (
+    &lt;div&gt;
+      {count &gt; 0 &amp;&amp; (
+        &lt;p&gt;Items: {count}&lt;/p&gt;
+      )}
+    &lt;/div&gt;
+  );
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="List rendering">
+      <div class="eyebrow">40 / RENDERING</div>
+      <h2>Render arrays with <code>map()</code></h2>
+      <pre><code>const products = [
+  { id: 1, name: "Laptop" },
+  { id: 2, name: "Mouse" },
+  { id: 3, name: "Keyboard" }
+];
+
+function ProductList() {
+  return (
+    &lt;ul&gt;
+      {products.map((product) =&gt; (
+        &lt;li key={product.id}&gt;
+          {product.name}
+        &lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}</code></pre>
+    </section>
+
+    <section class="slide" data-title="Keys">
+      <div class="eyebrow">41 / RENDERING</div>
+      <h2>Why does React need a <code>key</code>?</h2>
+      <div class="code-layout">
+        <div>
+          <h3>Keys identify list items</h3>
+          <p>React uses keys to understand which items were added, removed or reordered.</p>
+          <ul>
+            <li>Use a stable unique ID from your data</li>
+            <li>The key must be unique among siblings</li>
+            <li>Avoid array indexes when list order can change</li>
+          </ul>
+        </div>
+        <pre><code>{users.map((user) =&gt; (
+  &lt;UserCard
+    key={user.id}
+    name={user.name}
+  /&gt;
+))}</code></pre>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Reusable UI example">
+      <div class="eyebrow">42 / COMPONENT COMPOSITION</div>
+      <h2>Build reusable UI from small components</h2>
+      <div class="code-layout">
+        <div>
+          <h3>One card, different data</h3>
+          <p>Keep repeated layout in a component and pass changing values through props.</p>
+        </div>
+        <pre><code>function UserCard({ name, role }) {
+  return (
+    &lt;article className="user-card"&gt;
+      &lt;h3&gt;{name}&lt;/h3&gt;
+      &lt;p&gt;{role}&lt;/p&gt;
+    &lt;/article&gt;
+  );
+}
+
+&lt;UserCard name="Sara" role="Developer" /&gt;
+&lt;UserCard name="Ali" role="Designer" /&gt;</code></pre>
+      </div>
+    </section>
+
+
+    <section class="slide" data-title="Rules of Hooks">
+      <div class="eyebrow">44 / HOOKS</div>
+      <h2>Two beginner rules for Hooks</h2>
+      <p style="font-size: 1.25rem; line-height: 1.6;">
+        Think of Hooks as functions that connect your React components to React's built-in capabilities.
+      </p>
+      <div class="cards">
+        <article>
+          <div class="card-icon">1</div>
+          <h3>Call Hooks at the top level</h3>
+          <p>Do not call <code>useState</code> or <code>useEffect</code> inside loops, conditions or nested functions.
+          </p>
+        </article>
+        <article>
+          <div class="card-icon">2</div>
+          <h3>Call Hooks from React code</h3>
+          <p>Use Hooks inside React components or custom Hooks.</p>
+        </article>
+        <article>
+          <div class="card-icon">use</div>
+          <h3>Hook names start with use</h3>
+          <p>Examples: <code>useState</code> and <code>useEffect</code>.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" data-title="What is useEffect?">
+      <div class="eyebrow">45 / USEEFFECT</div>
+      <h2>What is a <em>side effect?</em></h2>
+      <p class="sub">After React renders my component, I sometimes need to execute additional code to synchronize with
+        something outside React.</p>
+      <div class="cards">
+        <article>
+          <div class="card-icon">API</div>
+
+          <p>Load data from an external API.</p>
+        </article>
+        <article>
+          <div class="card-icon">Timers</div>
+
+          <p>Start or stop an interval or timeout.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="slide" data-title="useEffect syntax">
+      <div class="eyebrow">46 / USEEFFECT</div>
+      <h2>Basic <code>useEffect</code> syntax</h2>
+      <pre><code>import { useEffect } from "react";
+
+function App() {
+  useEffect(() =&gt; {
+    console.log("Effect ran");
+  }, []);
+
+  return &lt;h1&gt;Hello&lt;/h1&gt;;
+}</code></pre>
+      <div class="note">DEPENDENCIES <span><code>[]</code> means this Effect does not depend on changing component
+          values.</span></div>
+    </section>
+
+    <section class="slide" data-title="Effect dependencies">
+      <div class="eyebrow">47 / USEEFFECT</div>
+      <h2>The dependency array matters</h2>
+      <div class="agenda">
+        <div><b>1</b><strong>No array</strong><span>Effect runs after every render</span></div>
+        <div><b>2</b><strong>[]</strong><span>Effect sets up after the component is added</span></div>
+        <div><b>3</b><strong>[value]</strong><span>Effect runs again when that dependency changes</span></div>
+      </div>
+      <pre><code>useEffect(() =&gt; {
+  document.title = `Count: ${count}`;
+}, [count]);</code></pre>
+    </section>
+
+    <section class="slide" data-title="Effect cleanup">
+      <div class="eyebrow">48 / USEEFFECT</div>
+      <h2>Some Effects need <em>cleanup.</em></h2>
+      <pre><code>useEffect(() =&gt; {
+  const timer = setInterval(() =&gt; {
+    console.log("Running...");
+  }, 1000);
+
+  return () =&gt; {
+    clearInterval(timer);
+  };
+}, []);</code></pre>
+      <div class="note">WHY CLEANUP? <span>Stop timers, subscriptions or other external work when the component no
+          longer needs them.</span></div>
+    </section>
+
+    <section class="slide" data-title="Strict Mode">
+      <div class="eyebrow">49 / USEEFFECT</div>
+      <h2>"Why did my Effect run twice?"</h2>
+      <div class="activity">
+        <div class="activity-icon">DEV</div>
+        <div>
+          <h3>React Strict Mode can do this in development</h3>
+          <p>React may run an extra setup + cleanup cycle for Effects in development to help reveal bugs.</p>
+          <p>This does <strong>not</strong> mean production runs every Effect twice.</p>
+          <p>Do not remove Strict Mode just to hide the issue. Write Effects that clean up correctly.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="overflow-y: scroll" class="slide" data-title="Fetch API data">
+      <div class="eyebrow">50 / API CONSUMPTION</div>
+      <h2>Fetch API data in a component</h2>
+      <pre><code>import { useEffect, useState } from "react";
+
+function Users() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() =&gt; {
+    async function loadUsers() {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+
+      const data = await response.json();
+      setUsers(data);
+    }
+
+    loadUsers();
+  }, []);
+
+  return &lt;p&gt;Users: {users.length}&lt;/p&gt;;
+}</code></pre>
+    </section>
+
+    <section style="overflow-y: scroll" class="slide dense" data-title="API loading error data">
+      <div class="eyebrow">51 / API CONSUMPTION</div>
+
+      <pre><code>function Users() {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() =&gt; {
+    async function loadUsers() {
+      try {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/users"
+        );
+
+        if (!response.ok) {
+          throw new Error("Could not load users");
+        }
+
+        const data = await response.json();
+        setUsers(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadUsers();
+  }, []);
+
+  if (loading) return &lt;p&gt;Loading...&lt;/p&gt;;
+  if (error) return &lt;p&gt;{error}&lt;/p&gt;;
+
+  return users.map(user =&gt; (
+    &lt;p key={user.id}&gt;{user.name}&lt;/p&gt;
+  ));
+}</code></pre>
+    </section>
+
+
+    <section style="overflow-y: scroll;" class="slide" data-title="Scalable folder structure">
+      <div class="eyebrow">55 / PROJECT STRUCTURE</div>
+      <h2>A simple folder structure as the app grows</h2>
+      <pre><code>src/
+├── assets/
+├── components/
+│   ├── Header/
+│   │   ├── Header.jsx
+│   │   └── Header.css
+│   ├── ProductCard/
+│   │   ├── ProductCard.jsx
+│   │   └── ProductCard.css
+│   └── Button/
+├── pages/
+│   ├── Home.jsx
+│   └── Products.jsx
+├── App.jsx
+├── index.css
+└── main.jsx</code></pre>
+      <div class="note">KEEP IT SIMPLE <span>Do not create complicated architecture before the project actually needs
+          it.</span></div>
+    </section>
+
+
+    <section class="slide closing" data-title="Next step">
+      <div class="eyebrow">60 / WRAP-UP</div>
+      <div class="centerpiece">
+        <div class="kicker">REACT MENTAL MODEL</div>
+        <h1>Components describe UI.<br><em>State drives change.</em></h1>
+        <p class="lead">Master components, props, state, events and effects before adding routing, global state or
+          larger React frameworks.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="bottom-ui">
+    <div class="controls">
+      <button id="themeToggle" aria-label="Switch to light mode" title="Switch theme">&#9788;</button>
+      <button id="prev" aria-label="Previous slide">&larr;</button>
+      <span id="counter">01 / 61</span>
+      <button id="next" aria-label="Next slide">&rarr;</button>
+      <button id="full" aria-label="Fullscreen">&#x26F6;</button>
+    </div>
+    <div class="signature">
+      <span class="signature-number" id="pageNumber">01</span>
+      <span class="logo-lockup">
+        <img src="/cohort-04-sebline-program-materials/assets/images/logo-transparent.png" alt="The Digital Hub logo">
+        <span class="logo-wordmark">THE<br>DIGITAL<br>HUB</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="progress" id="progress"></div>
+  <script src="/cohort-04-sebline-program-materials/assets/js/script.js"></script>
+</body>
+
+</html>

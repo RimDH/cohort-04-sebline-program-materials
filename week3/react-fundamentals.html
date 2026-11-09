@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="/cohort-04-sebline-program-materials/assets/images/the_digital_hub_unrwa_logo-removebg-preview.png">
+  <link rel="icon" type="image/png"
+    href="/cohort-04-sebline-program-materials/assets/images/the_digital_hub_unrwa_logo-removebg-preview.png">
   <title>React Fundamentals | The Digital Hub</title>
   <link rel="stylesheet" href="/cohort-04-sebline-program-materials/assets/css/style.css">
 </head>
@@ -15,7 +16,8 @@
     <section class="slide active hero" data-title="React Fundamentals">
       <div class="eyebrow"><span class="dot"></span> THE DIGITAL HUB <span class="muted">/ FRONTEND DEVELOPMENT</span>
       </div>
-      <img class="hero-logo" src="/cohort-04-sebline-program-materials/assets/images/the-digital-hub-full-logo.png" alt="The Digital Hub">
+      <img class="hero-logo" src="/cohort-04-sebline-program-materials/assets/images/the-digital-hub-full-logo.png"
+        alt="The Digital Hub">
       <div class="hero-content">
         <div class="kicker">WEEK 6 / REACT FUNDAMENTALS</div>
         <h1>Think in<br><em>components.</em></h1>
@@ -672,21 +674,7 @@ function handleClick() {
       </div>
     </section>
 
-    <section class="slide" data-title="Functional state updates">
-      <div class="eyebrow">33 / STATE</div>
-      <h2>When new state depends on old state</h2>
-      <pre><code>function Counter() {
-  const [count, setCount] = useState(0);
 
-  function increase() {
-    setCount(previousCount =&gt; previousCount + 1);
-  }
-
-  return &lt;button onClick={increase}&gt;{count}&lt;/button&gt;;
-}</code></pre>
-      <div class="note">GOOD HABIT <span>Use the updater form when calculating the next value from the previous
-          value.</span></div>
-    </section>
 
     <section class="slide" data-title="Object and array state">
       <div class="eyebrow">34 / STATE</div>
@@ -1010,7 +998,7 @@ function App() {
       </div>
     </section>
 
-    <section style="overflow-y: scroll"  class="slide" data-title="Fetch API data">
+    <section style="overflow-y: scroll" class="slide" data-title="Fetch API data">
       <div class="eyebrow">50 / API CONSUMPTION</div>
       <h2>Fetch API data in a component</h2>
       <pre><code>import { useEffect, useState } from "react";
@@ -1037,7 +1025,7 @@ function Users() {
 
     <section style="overflow-y: scroll" class="slide dense" data-title="API loading error data">
       <div class="eyebrow">51 / API CONSUMPTION</div>
-      
+
       <pre><code>function Users() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -1099,7 +1087,7 @@ function Users() {
           it.</span></div>
     </section>
 
-      
+
     <section class="slide closing" data-title="Next step">
       <div class="eyebrow">60 / WRAP-UP</div>
       <div class="centerpiece">
